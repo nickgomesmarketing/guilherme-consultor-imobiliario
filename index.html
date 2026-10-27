@@ -737,7 +737,11 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
 .gal-conta{font-size:14px;color:var(--texto-2);font-weight:600}
 .galeria{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:dense;gap:16px}
 .gal-item{display:block;width:100%;aspect-ratio:3/4;padding:0;border:0;background:var(--branco);border-radius:14px;overflow:hidden;cursor:zoom-in;box-shadow:0 10px 26px rgba(20,44,59,.08);position:relative}
-.gal-item.largo{grid-column:span 2;aspect-ratio:auto;height:100%}
+.gal-item.largo{grid-column:span 2;aspect-ratio:auto;height:auto}
+.gal-item.destaque{grid-column:span 2;grid-row:span 2;aspect-ratio:auto;height:auto}
+.gal-item.largo img,.gal-item.destaque img{position:absolute;inset:0}
+@media (max-width:700px){.gal-item.destaque{aspect-ratio:3/4}}
+
 @media (max-width:700px){.gal-item.largo{aspect-ratio:3/2;height:auto}}
 .gal-item img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block;transition:transform .5s ease}
 .gal-item::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(20,44,59,.06);transition:box-shadow .3s}
@@ -904,9 +908,9 @@ a.gal-mini:hover img{transform:scale(1.04)}
         <h2>Quem já deu o próximo passo</h2>
       </div>
       <div class="gal-faixa">
+        <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-18.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
+        <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-15.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
         <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-04.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
-        <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-07.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
-        <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-10.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
         <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-12.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
       </div>
       <div class="sec-foot"><a class="btn btn-linha" style="color:var(--verde)" href="#depoimentos" data-ir="depoimentos">Ver galeria de clientes</a></div>
@@ -1114,20 +1118,25 @@ a.gal-mini:hover img{transform:scale(1.04)}
     <div class="wrap">
       <div class="gal-cab"><p class="eyebrow">Galeria de clientes</p></div>
       <div class="galeria" id="galeria">
-        <button type="button" class="gal-item revela-foto" data-gal="0" aria-label="Ampliar foto 1 de 14"><img src="assets/clientes/cliente-01.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="1" aria-label="Ampliar foto 2 de 14"><img src="assets/clientes/cliente-02.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item largo revela-foto" data-gal="2" aria-label="Ampliar foto 3 de 14"><img src="assets/clientes/cliente-03.jpg" width="800" height="600" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="3" aria-label="Ampliar foto 4 de 14"><img src="assets/clientes/cliente-04.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="4" aria-label="Ampliar foto 5 de 14"><img src="assets/clientes/cliente-05.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="5" aria-label="Ampliar foto 6 de 14"><img src="assets/clientes/cliente-06.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="6" aria-label="Ampliar foto 7 de 14"><img src="assets/clientes/cliente-07.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="7" aria-label="Ampliar foto 8 de 14"><img src="assets/clientes/cliente-08.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="8" aria-label="Ampliar foto 9 de 14"><img src="assets/clientes/cliente-09.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="9" aria-label="Ampliar foto 10 de 14"><img src="assets/clientes/cliente-10.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="10" aria-label="Ampliar foto 11 de 14"><img src="assets/clientes/cliente-11.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="11" aria-label="Ampliar foto 12 de 14"><img src="assets/clientes/cliente-12.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="12" aria-label="Ampliar foto 13 de 14"><img src="assets/clientes/cliente-13.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="13" aria-label="Ampliar foto 14 de 14"><img src="assets/clientes/cliente-14.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto destaque" data-gal="0" aria-label="Ampliar foto 1 de 19"><img src="assets/clientes/cliente-18.jpg" width="750" height="1000" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="1" aria-label="Ampliar foto 2 de 19"><img src="assets/clientes/cliente-15.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="2" aria-label="Ampliar foto 3 de 19"><img src="assets/clientes/cliente-16.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="3" aria-label="Ampliar foto 4 de 19"><img src="assets/clientes/cliente-17.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="4" aria-label="Ampliar foto 5 de 19"><img src="assets/clientes/cliente-19.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="5" aria-label="Ampliar foto 6 de 19"><img src="assets/clientes/cliente-01.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="6" aria-label="Ampliar foto 7 de 19"><img src="assets/clientes/cliente-02.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto largo" data-gal="7" aria-label="Ampliar foto 8 de 19"><img src="assets/clientes/cliente-03.jpg" width="800" height="600" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="8" aria-label="Ampliar foto 9 de 19"><img src="assets/clientes/cliente-04.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="9" aria-label="Ampliar foto 10 de 19"><img src="assets/clientes/cliente-05.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="10" aria-label="Ampliar foto 11 de 19"><img src="assets/clientes/cliente-06.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="11" aria-label="Ampliar foto 12 de 19"><img src="assets/clientes/cliente-07.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="12" aria-label="Ampliar foto 13 de 19"><img src="assets/clientes/cliente-08.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="13" aria-label="Ampliar foto 14 de 19"><img src="assets/clientes/cliente-09.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="14" aria-label="Ampliar foto 15 de 19"><img src="assets/clientes/cliente-10.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="15" aria-label="Ampliar foto 16 de 19"><img src="assets/clientes/cliente-11.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="16" aria-label="Ampliar foto 17 de 19"><img src="assets/clientes/cliente-12.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="17" aria-label="Ampliar foto 18 de 19"><img src="assets/clientes/cliente-13.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="18" aria-label="Ampliar foto 19 de 19"><img src="assets/clientes/cliente-14.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
         <div class="gal-cta revela-foto gal-item-cta"><p class="eyebrow">Próxima conquista</p><b>A próxima foto pode ser a sua.</b><p>Conte o seu momento e receba orientação para encontrar o imóvel certo.</p><a class="btn btn-wa" data-wa="geral" href="https://wa.me/5511950274532" target="_blank" rel="noopener">Falar com Guilherme</a></div>
       </div>
     </div>
@@ -1235,10 +1244,10 @@ a.gal-mini:hover img{transform:scale(1.04)}
     <div class="wrap">
       <div class="sec-head"><p class="eyebrow">Clientes</p><h2>Quem já deu o próximo passo</h2></div>
       <div class="gal-faixa">
-        <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-01.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
-        <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-04.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
+        <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-18.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
+        <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-17.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
         <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-10.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
-        <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-12.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
+        <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-19.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
       </div>
     </div>
   </section>
