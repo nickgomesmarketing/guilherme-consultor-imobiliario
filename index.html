@@ -761,6 +761,17 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
 .lb-nav:hover,.lb-fechar:hover{background:rgba(255,255,255,.14)}
 .lb-fechar{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:max(12px, env(safe-area-inset-right,0px))}
 @media (max-width:640px){.lb-nav{position:absolute;bottom:calc(18px + env(safe-area-inset-bottom,0px))}.lb-ant{left:calc(50% - 60px)}.lb-prox{right:calc(50% - 60px)}.lb-fig img{max-height:calc(100vh - 190px)}.lightbox{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}}
+
+/* Faixa de fotos de clientes (Início e página de captação) */
+.gal-faixa{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.gal-mini{display:block;aspect-ratio:3/4;border-radius:14px;overflow:hidden;box-shadow:0 10px 26px rgba(20,44,59,.08)}
+.gal-mini img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:transform .5s ease}
+a.gal-mini:hover img{transform:scale(1.04)}
+@media (max-width:700px){.gal-faixa{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.gal-mini{border-radius:10px}}
+.anima .gal-mini.revela-foto{opacity:0}
+.anima .gal-mini.revela-foto.visivel{animation:galEntra .8s cubic-bezier(.2,.8,.2,1) both}
+.gal-faixa>:nth-child(2){animation-delay:.12s}.gal-faixa>:nth-child(3){animation-delay:.24s}.gal-faixa>:nth-child(4){animation-delay:.36s}
+.cards-emp{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));max-width:900px}
 [hidden],.view[hidden]{display:none!important}
 </style>
 </head>
@@ -889,10 +900,15 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
   <section class="band bg-branco">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Depoimentos</p>
+        <p class="eyebrow">Clientes</p>
         <h2>Quem já deu o próximo passo</h2>
       </div>
-      <div class="depos" data-depo-lista="2"></div>
+      <div class="gal-faixa">
+        <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-04.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
+        <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-07.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
+        <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-10.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
+        <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-12.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
+      </div>
       <div class="sec-foot"><a class="btn btn-linha" style="color:var(--verde)" href="#depoimentos" data-ir="depoimentos">Ver galeria de clientes</a></div>
     </div>
   </section>
@@ -1096,7 +1112,7 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
   </section>
   <section class="band bg-gelo">
     <div class="wrap">
-      <div class="gal-cab"><p class="eyebrow">Galeria</p><span class="gal-conta">14 conquistas registradas</span></div>
+      <div class="gal-cab"><p class="eyebrow">Galeria de clientes</p></div>
       <div class="galeria" id="galeria">
         <button type="button" class="gal-item revela-foto" data-gal="0" aria-label="Ampliar foto 1 de 14"><img src="assets/clientes/cliente-01.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
         <button type="button" class="gal-item revela-foto" data-gal="1" aria-label="Ampliar foto 2 de 14"><img src="assets/clientes/cliente-02.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
@@ -1114,13 +1130,6 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
         <button type="button" class="gal-item revela-foto" data-gal="13" aria-label="Ampliar foto 14 de 14"><img src="assets/clientes/cliente-14.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
         <div class="gal-cta revela-foto gal-item-cta"><p class="eyebrow">Próxima conquista</p><b>A próxima foto pode ser a sua.</b><p>Conte o seu momento e receba orientação para encontrar o imóvel certo.</p><a class="btn btn-wa" data-wa="geral" href="https://wa.me/5511950274532" target="_blank" rel="noopener">Falar com Guilherme</a></div>
       </div>
-    </div>
-  </section>
-  <section class="band bg-branco">
-    <div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Depoimentos</p><h2>O que dizem os clientes</h2></div>
-      <div class="depos" data-depo-lista="2"></div>
-      <div class="sec-foot"><a class="btn btn-wa" data-wa="geral" href="https://wa.me/5511950274532" target="_blank" rel="noopener">Quero ser o próximo</a></div>
     </div>
   </section>
 </div>
@@ -1202,10 +1211,9 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
           <p class="lp-seguro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Seus dados ficam só com o Guilherme. Ou, se preferir, <a data-wa="geral" href="https://wa.me/5511950274532" target="_blank" rel="noopener">fale direto no WhatsApp</a>.</p>
           <div class="lead-ok" id="ct2-ok" hidden tabindex="-1">
             <div class="selo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <h2 id="ct2-ok-titulo">Recebido!</h2>
-            <p>O Guilherme vai te chamar no WhatsApp. Se quiser adiantar, envie sua mensagem agora:</p>
-            <a class="btn btn-wa" id="ct2-ok-wa" href="https://wa.me/5511950274532" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
-            <p class="nota-proto">Versão de protótipo: o envio automático para o Guilherme será ligado quando o site estiver no ar.</p>
+            <h2 id="ct2-ok-titulo">Quase lá!</h2>
+            <p>Sua mensagem já está pronta no WhatsApp. É só tocar em enviar para o Guilherme receber seus dados e te responder.</p>
+            <a class="btn btn-wa" id="ct2-ok-wa" href="https://wa.me/5511950274532" target="_blank" rel="noopener">Abrir WhatsApp e enviar</a>
           </div>
         </form>
       </div>
@@ -1225,8 +1233,13 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
 
   <section class="band-sm bg-gelo">
     <div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Depoimentos</p><h2>Quem já deu o próximo passo</h2></div>
-      <div class="depos" data-depo-lista="2"></div>
+      <div class="sec-head"><p class="eyebrow">Clientes</p><h2>Quem já deu o próximo passo</h2></div>
+      <div class="gal-faixa">
+        <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-01.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
+        <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-04.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
+        <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-10.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
+        <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-12.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
+      </div>
     </div>
   </section>
 
@@ -1342,7 +1355,6 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
   /* Empreendimentos: dados públicos das construtoras (conferir com o Guilherme) */
   var EMP = [
     {nome:'Urbano First', construtora:'Cavazani', regiao:'Barreira Grande, SP', tipo:'1 e 2 dorms · 32 e 38 m²', entrega:'Previsão jan/2028', preco:'R$ 225 mil', selo:'Lançamento · MCMV', foto:'assets/emp-urbano-first.jpg'},
-    {nome:'Jardim das Rosas', construtora:'Zinco Residencial', regiao:'Granja Viana, Cotia', tipo:'1 a 3 dorms · 45 a 60 m²', entrega:null, preco:null, selo:'Destaque', foto:'assets/emp-jardim-das-rosas.jpg'},
     {nome:'Vivaz Origens da Mooca', construtora:'Vivaz (Cyrela)', regiao:'Mooca, SP', tipo:'1 e 2 dorms · 25 a 35 m²', entrega:'Previsão ago/2029', preco:'R$ 216,9 mil', selo:'Lançamento · MCMV', foto:'assets/emp-vivaz-origens.jpg'}
   ];
   function campo(v){ return v ? '<dd>' + v + '</dd>' : '<dd class="pend">a confirmar</dd>'; }
@@ -1382,24 +1394,11 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
   })();
 
   /* Depoimentos: espaços para os textos reais do Guilherme */
-  /* Depoimentos de EXEMPLO para o protótipo: substituir pelos depoimentos reais antes de publicar */
-  var DEPO = [
-    {tag:'Primeiro imóvel', nome:'Mariana S.', local:'Itaquera, SP', detalhe:'Apartamento 2 dorms na planta',
-     texto:'Eu achava que comprar um apartamento ainda estava longe. O Guilherme sentou comigo, olhou minha renda e meu FGTS e mostrou um caminho possível. Explicou cada etapa sem pressa e eu assinei sabendo exatamente o que estava fazendo.'},
-    {tag:'Minha Casa Minha Vida', nome:'Carlos e Priscila R.', local:'Guaianases, SP', detalhe:'Saíram do aluguel',
-     texto:'A gente pagava aluguel há oito anos. Com o Guilherme entendemos como funciona o subsídio e a parcela ficou parecida com o aluguel que pagávamos. Hoje a chave é nossa.'},
-    {tag:'Família crescendo', nome:'Juliana M.', local:'Mooca, SP', detalhe:'Troca por um imóvel maior',
-     texto:'Com a chegada do segundo filho precisávamos de mais espaço. Ele comparou opções de verdade, falou dos pontos fortes e também do que não era bom em cada uma. Isso passou muita confiança.'},
-    {tag:'Investimento', nome:'Roberto A.', local:'Tatuapé, SP', detalhe:'Unidade para renda',
-     texto:'Queria começar a investir em imóveis, mas não sabia por onde. O Guilherme analisou localização, potencial de aluguel e prazo de entrega antes de indicar qualquer coisa. Atendimento muito profissional.'},
-    {tag:'Primeiro imóvel', nome:'Thiago L.', local:'São Miguel Paulista, SP', detalhe:'Studio perto do metrô',
-     texto:'Respondeu todas as minhas dúvidas pelo WhatsApp, até as que eu achava bobas. Me ajudou com a documentação e acompanhou a análise de crédito do começo ao fim.'},
-    {tag:'Terreno', nome:'Sr. Antônio F.', local:'Guarulhos, SP', detalhe:'Negociação por permuta',
-     texto:'Tinha um terreno parado há anos. O Guilherme trouxe uma proposta de permuta bem explicada, com os prós e contras, e fez a ponte com a incorporadora com muita seriedade.'}
-  ];
+  /* Depoimentos: incluir aqui os textos reais quando o Guilherme enviar */
+  var DEPO = [];
   function iniciais(n){ return n.replace(/^Sr\.\s*/,'').split(/\s+/).filter(function(p){ return /^[A-ZÁ-Ú]/.test(p); }).slice(0,2).map(function(p){ return p[0]; }).join(''); }
   function cardDepo(d, i){
-    return '<article class="depo"><div class="depo-topo"><span class="depo-tag">' + d.tag + '</span><span class="depo-exemplo">Exemplo</span></div>' +
+    return '<article class="depo"><div class="depo-topo"><span class="depo-tag">' + d.tag + '</span></div>' +
       '<div class="aspas" aria-hidden="true">“</div>' +
       '<p>' + d.texto + '</p>' +
       '<div class="quem"><div class="avatar' + (i % 2 ? ' av-azul' : '') + '" aria-hidden="true">' + iniciais(d.nome) + '</div><div><b>' + d.nome + '</b><span>' + d.local + ' · ' + d.detalhe + '</span></div></div></article>';
@@ -1407,7 +1406,6 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
   document.querySelectorAll('[data-depo-lista]').forEach(function(el){
     var n = el.dataset.depoLista === 'todos' ? DEPO.length : parseInt(el.dataset.depoLista, 10);
     el.innerHTML = DEPO.slice(0, n).map(cardDepo).join('');
-    el.insertAdjacentHTML('afterend', '<p class="aviso-exemplo">Depoimentos de exemplo, criados só para visualizar o layout. Na versão final entram os depoimentos reais dos clientes.</p>');
   });
 
   /* Navegação entre páginas */
@@ -1522,11 +1520,12 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
       if (erro('ct2-e-lgpd', !$('ct2-lgpd').checked)) foco = foco || $('ct2-lgpd');
       if (foco){ foco.focus(); return; }
       var lead = {nome:$('ct2-nome').value.trim(), whatsapp:$('ct2-whats').value, objetivo:marcado('ct2obj'), origem:origem, pagina: document.documentElement.classList.contains('modo-lp') ? 'lp' : 'contato'};
-      /* No site no ar: enviar "lead" para o e-mail / planilha / CRM do Guilherme aqui */
       /* Conversão para os anúncios (Meta e Google), quando os códigos forem instalados */
       try { if (window.fbq) fbq('track', 'Lead'); if (window.gtag) gtag('event', 'generate_lead'); (window.dataLayer = window.dataLayer || []).push({event:'lead', objetivo:lead.objetivo}); } catch(err){}
-      $('ct2-ok-titulo').textContent = 'Recebido, ' + lead.nome.split(' ')[0] + '!';
-      $('ct2-ok-wa').href = wa('Olá, Guilherme! Meu nome é ' + lead.nome + '. Quero minha análise gratuita. Procuro: ' + lead.objetivo + '.');
+      $('ct2-ok-titulo').textContent = 'Quase lá, ' + lead.nome.split(' ')[0] + '!';
+      var link = wa('Olá, Guilherme! Meu nome é ' + lead.nome + ' (WhatsApp ' + lead.whatsapp + '). Quero minha análise gratuita. Procuro: ' + lead.objetivo + '.');
+      $('ct2-ok-wa').href = link;
+      try { window.open(link, '_blank', 'noopener'); } catch(err){}
       Array.prototype.forEach.call(form.children, function(c){ if (c.id !== 'ct2-ok') c.hidden = true; });
       $('ct2-ok').hidden = false; $('ct2-ok').focus({preventScroll:true});
     });
