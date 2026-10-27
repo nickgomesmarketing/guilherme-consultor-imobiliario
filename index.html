@@ -731,6 +731,36 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
   .emp .btn{width:100%}
   .hero .eyebrow{font-size:12px;letter-spacing:.12em}
 }
+
+/* ===== Galeria de clientes ===== */
+.gal-cab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.gal-conta{font-size:14px;color:var(--texto-2);font-weight:600}
+.galeria{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:dense;gap:16px}
+.gal-item{display:block;width:100%;aspect-ratio:3/4;padding:0;border:0;background:var(--branco);border-radius:14px;overflow:hidden;cursor:zoom-in;box-shadow:0 10px 26px rgba(20,44,59,.08);position:relative}
+.gal-item.largo{grid-column:span 2;aspect-ratio:auto;height:100%}
+@media (max-width:700px){.gal-item.largo{aspect-ratio:3/2;height:auto}}
+.gal-item img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block;transition:transform .5s ease}
+.gal-item::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(20,44,59,.06);transition:box-shadow .3s}
+.gal-item:hover img{transform:scale(1.04)}
+.gal-item:hover::after{box-shadow:inset 0 0 0 3px var(--dourado)}
+.gal-item:focus-visible{outline:3px solid var(--dourado);outline-offset:3px}
+.gal-cta{aspect-ratio:3/4;border-radius:14px;background:var(--verde-escuro);color:var(--branco);padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;border-top:3px solid var(--dourado);box-shadow:0 14px 34px rgba(22,52,40,.2)}
+.gal-cta .eyebrow{color:var(--dourado-claro)}
+.gal-cta b{font-family:var(--display);font-size:clamp(19px,1.8vw,24px);line-height:1.2;letter-spacing:-.01em}
+.gal-cta p{color:var(--sobre-verde);font-size:14.5px}
+.gal-cta .btn{align-self:flex-start;background:var(--dourado);color:var(--preto);box-shadow:none}
+@media (max-width:700px){.galeria{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.gal-item,.gal-cta{border-radius:10px}.gal-cta{padding:14px;gap:8px}.gal-cta p{display:none}.gal-cta .btn{padding:10px 14px;font-size:13.5px;min-height:42px}}
+@keyframes galEntra{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.anima .gal-item.revela-foto,.anima .gal-cta.revela-foto{opacity:0}
+.anima .gal-item.revela-foto.visivel,.anima .gal-cta.revela-foto.visivel{animation:galEntra .8s cubic-bezier(.2,.8,.2,1) both}
+.lightbox{position:fixed;inset:0;z-index:80;background:rgba(10,20,15,.94);display:flex;align-items:center;justify-content:center;gap:12px;padding:calc(56px + env(safe-area-inset-top,0px)) max(12px, env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(12px, env(safe-area-inset-left,0px));animation:capaVeu .25s ease both}
+.lb-fig{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px;min-width:0;max-width:min(980px,100%)}
+.lb-fig img{max-width:100%;max-height:calc(100vh - 140px);border-radius:12px;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.lb-fig figcaption{color:var(--sobre-verde);font-size:14px}
+.lb-nav,.lb-fechar{border:1px solid rgba(233,217,180,.45);background:rgba(255,255,255,.06);color:var(--branco);width:48px;height:48px;border-radius:50%;font-size:30px;line-height:1;cursor:pointer;flex:none;display:flex;align-items:center;justify-content:center}
+.lb-nav:hover,.lb-fechar:hover{background:rgba(255,255,255,.14)}
+.lb-fechar{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:max(12px, env(safe-area-inset-right,0px))}
+@media (max-width:640px){.lb-nav{position:absolute;bottom:calc(18px + env(safe-area-inset-bottom,0px))}.lb-ant{left:calc(50% - 60px)}.lb-prox{right:calc(50% - 60px)}.lb-fig img{max-height:calc(100vh - 190px)}.lightbox{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}}
 [hidden],.view[hidden]{display:none!important}
 </style>
 </head>
@@ -863,7 +893,7 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
         <h2>Quem já deu o próximo passo</h2>
       </div>
       <div class="depos" data-depo-lista="2"></div>
-      <div class="sec-foot"><a class="btn btn-linha" style="color:var(--verde)" href="#depoimentos" data-ir="depoimentos">Ver todos os depoimentos</a></div>
+      <div class="sec-foot"><a class="btn btn-linha" style="color:var(--verde)" href="#depoimentos" data-ir="depoimentos">Ver galeria de clientes</a></div>
     </div>
   </section>
 
@@ -1059,16 +1089,47 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
 <div class="view" id="v-depoimentos" data-view="depoimentos" hidden>
   <section class="page-hero">
     <div class="wrap">
-      <p class="eyebrow">Depoimentos</p>
-      <h1>Histórias de quem já deu o próximo passo</h1>
-      <p class="lead">Clientes que conquistaram o primeiro imóvel ou começaram a investir.</p>
+      <p class="eyebrow">Clientes</p>
+      <h1>Quem já deu o próximo passo</h1>
+      <p class="lead">Momentos reais de clientes que conquistaram o imóvel com a orientação do Guilherme.</p>
     </div>
   </section>
   <section class="band bg-gelo">
     <div class="wrap">
-      <div class="depos" data-depo-lista="todos"></div>
+      <div class="gal-cab"><p class="eyebrow">Galeria</p><span class="gal-conta">14 conquistas registradas</span></div>
+      <div class="galeria" id="galeria">
+        <button type="button" class="gal-item revela-foto" data-gal="0" aria-label="Ampliar foto 1 de 14"><img src="assets/clientes/cliente-01.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="1" aria-label="Ampliar foto 2 de 14"><img src="assets/clientes/cliente-02.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item largo revela-foto" data-gal="2" aria-label="Ampliar foto 3 de 14"><img src="assets/clientes/cliente-03.jpg" width="800" height="600" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="3" aria-label="Ampliar foto 4 de 14"><img src="assets/clientes/cliente-04.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="4" aria-label="Ampliar foto 5 de 14"><img src="assets/clientes/cliente-05.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="5" aria-label="Ampliar foto 6 de 14"><img src="assets/clientes/cliente-06.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="6" aria-label="Ampliar foto 7 de 14"><img src="assets/clientes/cliente-07.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="7" aria-label="Ampliar foto 8 de 14"><img src="assets/clientes/cliente-08.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="8" aria-label="Ampliar foto 9 de 14"><img src="assets/clientes/cliente-09.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="9" aria-label="Ampliar foto 10 de 14"><img src="assets/clientes/cliente-10.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="10" aria-label="Ampliar foto 11 de 14"><img src="assets/clientes/cliente-11.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="11" aria-label="Ampliar foto 12 de 14"><img src="assets/clientes/cliente-12.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="12" aria-label="Ampliar foto 13 de 14"><img src="assets/clientes/cliente-13.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="13" aria-label="Ampliar foto 14 de 14"><img src="assets/clientes/cliente-14.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <div class="gal-cta revela-foto gal-item-cta"><p class="eyebrow">Próxima conquista</p><b>A próxima foto pode ser a sua.</b><p>Conte o seu momento e receba orientação para encontrar o imóvel certo.</p><a class="btn btn-wa" data-wa="geral" href="https://wa.me/5511950274532" target="_blank" rel="noopener">Falar com Guilherme</a></div>
+      </div>
     </div>
   </section>
+  <section class="band bg-branco">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Depoimentos</p><h2>O que dizem os clientes</h2></div>
+      <div class="depos" data-depo-lista="2"></div>
+      <div class="sec-foot"><a class="btn btn-wa" data-wa="geral" href="https://wa.me/5511950274532" target="_blank" rel="noopener">Quero ser o próximo</a></div>
+    </div>
+  </section>
+</div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada" hidden>
+  <button type="button" class="lb-fechar" id="lb-fechar" aria-label="Fechar">×</button>
+  <button type="button" class="lb-nav lb-ant" id="lb-ant" aria-label="Foto anterior">‹</button>
+  <figure class="lb-fig"><img id="lb-img" alt=""><figcaption id="lb-conta"></figcaption></figure>
+  <button type="button" class="lb-nav lb-prox" id="lb-prox" aria-label="Próxima foto">›</button>
 </div>
 
 <!-- ===================== DÚVIDAS ===================== -->
@@ -1474,6 +1535,23 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
       function selecionar(){ var r = document.createRange(); r.selectNodeContents(alvo); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Número selecionado'; }
       try { navigator.clipboard.writeText(alvo.textContent).then(function(){ btn.textContent = 'Número copiado'; }, selecionar); } catch(e){ selecionar(); }
     });
+  })();
+  /* Galeria de clientes: atraso em cascata + foto ampliada */
+  (function(){
+    var itens = [].slice.call(document.querySelectorAll('.gal-item'));
+    document.querySelectorAll('.galeria > *').forEach(function(b, i){ b.style.animationDelay = ((i % 4) * 0.12) + 's'; });
+    var lb = document.getElementById('lightbox'), img = document.getElementById('lb-img'), conta = document.getElementById('lb-conta'), atual = 0, origem = null;
+    function abrir(i){ atual = (i + itens.length) % itens.length; img.src = itens[atual].querySelector('img').src; img.alt = itens[atual].querySelector('img').alt; conta.textContent = (atual + 1) + ' de ' + itens.length; }
+    itens.forEach(function(b, i){ b.addEventListener('click', function(){ origem = b; abrir(i); lb.hidden = false; document.body.style.overflow = 'hidden'; document.getElementById('lb-fechar').focus(); }); });
+    function fechar(){ lb.hidden = true; document.body.style.overflow = ''; if (origem) origem.focus({preventScroll:true}); }
+    document.getElementById('lb-fechar').addEventListener('click', fechar);
+    document.getElementById('lb-ant').addEventListener('click', function(){ abrir(atual - 1); });
+    document.getElementById('lb-prox').addEventListener('click', function(){ abrir(atual + 1); });
+    lb.addEventListener('click', function(e){ if (e.target === lb) fechar(); });
+    document.addEventListener('keydown', function(e){ if (lb.hidden) return; if (e.key === 'Escape') fechar(); if (e.key === 'ArrowLeft') abrir(atual - 1); if (e.key === 'ArrowRight') abrir(atual + 1); });
+    var x0 = null;
+    lb.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, {passive:true});
+    lb.addEventListener('touchend', function(e){ if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) abrir(atual + (dx < 0 ? 1 : -1)); x0 = null; });
   })();
   /* ===== Fale com o Cedrinho: conversa guiada (sem inteligência artificial, respostas prontas) ===== */
   (function(){
