@@ -775,7 +775,10 @@ a.gal-mini:hover img{transform:scale(1.04)}
 .anima .gal-mini.revela-foto{opacity:0}
 .anima .gal-mini.revela-foto.visivel{animation:galEntra .8s cubic-bezier(.2,.8,.2,1) both}
 .gal-faixa>:nth-child(2){animation-delay:.12s}.gal-faixa>:nth-child(3){animation-delay:.24s}.gal-faixa>:nth-child(4){animation-delay:.36s}
-.cards-emp{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));max-width:900px}
+
+.emp-foto-txt{color:var(--verde);font-weight:700;letter-spacing:.08em}
+.emp-info{font-size:15px;color:var(--texto-2)}
+.emp-foto:not(:has(.emp-img)){background:var(--verde-tinta)!important}
 [hidden],.view[hidden]{display:none!important}
 </style>
 </head>
@@ -1364,18 +1367,20 @@ a.gal-mini:hover img{transform:scale(1.04)}
   /* Empreendimentos: dados públicos das construtoras (conferir com o Guilherme) */
   var EMP = [
     {nome:'Urbano First', construtora:'Cavazani', regiao:'Barreira Grande, SP', tipo:'1 e 2 dorms · 32 e 38 m²', entrega:'Previsão jan/2028', preco:'R$ 225 mil', selo:'Lançamento · MCMV', foto:'assets/emp-urbano-first.jpg'},
-    {nome:'Vivaz Origens da Mooca', construtora:'Vivaz (Cyrela)', regiao:'Mooca, SP', tipo:'1 e 2 dorms · 25 a 35 m²', entrega:'Previsão ago/2029', preco:'R$ 216,9 mil', selo:'Lançamento · MCMV', foto:'assets/emp-vivaz-origens.jpg'}
+    {nome:'Vivaz Origens da Mooca', construtora:'Vivaz (Cyrela)', regiao:'Mooca, SP', tipo:'1 e 2 dorms · 25 a 35 m²', entrega:'Previsão ago/2029', preco:'R$ 216,9 mil', selo:'Lançamento · MCMV', foto:'assets/emp-vivaz-origens.jpg'},
+    {nome:'Jardim das Rosas', construtora:'Em destaque', regiao:'Zona Leste, SP', tipo:null, entrega:null, preco:null, selo:'Destaque', foto:null}
   ];
   function campo(v){ return v ? '<dd>' + v + '</dd>' : '<dd class="pend">a confirmar</dd>'; }
   function cardEmp(e){
     var foto = e.foto
       ? '<img class="emp-img" src="' + e.foto + '" alt="Imagem do empreendimento ' + e.nome + '" loading="lazy">'
-      : '<img src="assets/simbolo-dourado.svg" alt="">Fotos oficiais em breve';
+      : '<img src="assets/simbolo-dourado.svg" alt=""><span class="emp-foto-txt">' + e.regiao + '</span>';
     return '<article class="emp">' +
       '<div class="emp-foto"><span class="emp-status">' + e.selo + '</span>' + foto + '</div>' +
       '<div class="emp-corpo"><span class="emp-construtora">' + e.construtora + '</span><h3>' + e.nome + '</h3>' +
-      '<dl><dt>Região</dt>' + campo(e.regiao) + '<dt>Plantas</dt>' + campo(e.tipo) + '<dt>Entrega</dt>' + campo(e.entrega) +
-      '<dt>A partir de</dt>' + (e.preco ? '<dd class="preco">' + e.preco + '</dd>' : '<dd class="pend">consulte</dd>') + '</dl>' +
+      (e.tipo ? '<dl><dt>Região</dt>' + campo(e.regiao) + '<dt>Plantas</dt>' + campo(e.tipo) + '<dt>Entrega</dt>' + campo(e.entrega) +
+      '<dt>A partir de</dt>' + (e.preco ? '<dd class="preco">' + e.preco + '</dd>' : '<dd class="pend">consulte</dd>') + '</dl>'
+      : '<dl><dt>Região</dt><dd>' + e.regiao + '</dd></dl><p class="emp-info">Fotos, plantas e condições atualizadas direto com o Guilherme.</p>') +
       '<a class="btn btn-wa" target="_blank" rel="noopener" href="' + wa('Olá, Guilherme! Quero conhecer o ' + e.nome + '.') + '">Quero conhecer este imóvel</a>' +
       '</div></article>';
   }
