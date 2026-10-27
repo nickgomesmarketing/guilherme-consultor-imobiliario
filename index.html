@@ -276,6 +276,16 @@ nav.menu a[aria-current="page"]{color:var(--verde);box-shadow:inset 0 -2px 0 var
 .anima .revela-cards.visivel>:nth-child(1) .frente-icone{animation-delay:.45s}
 .anima .revela-cards.visivel>:nth-child(2) .frente-icone{animation-delay:.6s}
 .anima .revela-cards.visivel>:nth-child(3) .frente-icone{animation-delay:.75s}
+/* Etapas numeradas: cada número aparece quando chega na tela */
+@keyframes passoTexto{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+@keyframes passoLinha{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.anima .revela-passo.revela-foto{overflow:visible}
+.anima .revela-passo .bola,.anima .revela-passo .num{opacity:0}
+.anima .revela-passo>div{opacity:0}
+.anima .revela-passo.visivel .bola,.anima .revela-passo.visivel .num{animation:valorEntra .6s cubic-bezier(.2,.8,.2,1) both}
+.anima .revela-passo.visivel>div{animation:passoTexto .7s cubic-bezier(.2,.8,.2,1) .2s both}
+.anima .linha-tempo .revela-passo::before{transform-origin:top;transform:scaleY(0)}
+.anima .linha-tempo .revela-passo.visivel::before{animation:passoLinha .9s ease .35s both}
 .texto-longo{display:flex;flex-direction:column;gap:18px;max-width:64ch}
 .texto-longo p{color:var(--texto-2)}
 .texto-longo .abre{font-size:20px;color:var(--texto);line-height:1.55}
@@ -826,9 +836,9 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
         <p class="frase-grande">Minha forma de trabalhar começa pela escuta.</p>
         <p class="lead">Antes de mostrar qualquer imóvel, entendo o seu momento e os seus objetivos.</p>
         <ol class="passos">
-          <li><span class="num">1</span><div><h3>Escuta e diagnóstico</h3><p>Orçamento, momento de vida e objetivos.</p></div></li>
-          <li><span class="num">2</span><div><h3>Caminhos que fazem sentido</h3><p>Opções reais, explicadas de forma clara.</p></div></li>
-          <li><span class="num">3</span><div><h3>Acompanhamento até as chaves</h3><p>Negociação, contrato e financiamento ao seu lado.</p></div></li>
+          <li class="revela-foto revela-passo"><span class="num">1</span><div><h3>Escuta e diagnóstico</h3><p>Orçamento, momento de vida e objetivos.</p></div></li>
+          <li class="revela-foto revela-passo"><span class="num">2</span><div><h3>Caminhos que fazem sentido</h3><p>Opções reais, explicadas de forma clara.</p></div></li>
+          <li class="revela-foto revela-passo"><span class="num">3</span><div><h3>Acompanhamento até as chaves</h3><p>Negociação, contrato e financiamento ao seu lado.</p></div></li>
         </ol>
         <div><a class="btn btn-linha btn-sec" href="#sobre" data-ir="sobre">Conheça o Guilherme</a></div>
       </div>
@@ -964,12 +974,12 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
   <section class="band bg-gelo">
     <div class="wrap split">
       <ol class="linha-tempo">
-        <li><span class="bola">1</span><div><h3>Conversa e diagnóstico</h3><p>Entendemos sua renda, o valor que você tem disponível (incluindo FGTS) e o tipo de imóvel que faz sentido para você.</p></div></li>
-        <li><span class="bola">2</span><div><h3>Escolha da unidade e reserva</h3><p>Comparamos empreendimentos, plantas, andares e localização. Com a unidade escolhida, fazemos a reserva com a construtora.</p></div></li>
-        <li><span class="bola">3</span><div><h3>Análise de crédito</h3><p>O banco avalia sua renda e seu cadastro para confirmar quanto pode ser financiado. Eu acompanho e oriento sobre os documentos.</p></div></li>
-        <li><span class="bola">4</span><div><h3>Assinatura do contrato</h3><p>Leitura cuidadosa do contrato com a construtora: valores, prazos, forma de correção e data prevista de entrega.</p></div></li>
-        <li><span class="bola">5</span><div><h3>Pagamentos durante a obra</h3><p>A entrada costuma ser parcelada até a entrega. Durante a obra, as parcelas com a construtora são corrigidas pelo INCC, o índice da construção civil.</p></div></li>
-        <li><span class="bola">6</span><div><h3>Financiamento e entrega das chaves</h3><p>O saldo é pago pelo financiamento bancário. Com tudo regularizado, você recebe as chaves do seu imóvel.</p></div></li>
+        <li class="revela-foto revela-passo"><span class="bola">1</span><div><h3>Conversa e diagnóstico</h3><p>Entendemos sua renda, o valor que você tem disponível (incluindo FGTS) e o tipo de imóvel que faz sentido para você.</p></div></li>
+        <li class="revela-foto revela-passo"><span class="bola">2</span><div><h3>Escolha da unidade e reserva</h3><p>Comparamos empreendimentos, plantas, andares e localização. Com a unidade escolhida, fazemos a reserva com a construtora.</p></div></li>
+        <li class="revela-foto revela-passo"><span class="bola">3</span><div><h3>Análise de crédito</h3><p>O banco avalia sua renda e seu cadastro para confirmar quanto pode ser financiado. Eu acompanho e oriento sobre os documentos.</p></div></li>
+        <li class="revela-foto revela-passo"><span class="bola">4</span><div><h3>Assinatura do contrato</h3><p>Leitura cuidadosa do contrato com a construtora: valores, prazos, forma de correção e data prevista de entrega.</p></div></li>
+        <li class="revela-foto revela-passo"><span class="bola">5</span><div><h3>Pagamentos durante a obra</h3><p>A entrada costuma ser parcelada até a entrega. Durante a obra, as parcelas com a construtora são corrigidas pelo INCC, o índice da construção civil.</p></div></li>
+        <li class="revela-foto revela-passo"><span class="bola">6</span><div><h3>Financiamento e entrega das chaves</h3><p>O saldo é pago pelo financiamento bancário. Com tudo regularizado, você recebe as chaves do seu imóvel.</p></div></li>
       </ol>
       <div class="quadros">
         <div class="quadro verde">
