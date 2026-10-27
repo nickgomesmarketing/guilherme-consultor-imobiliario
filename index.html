@@ -255,6 +255,27 @@ nav.menu a[aria-current="page"]{color:var(--verde);box-shadow:inset 0 -2px 0 var
 .anima .revela-foto.visivel img{animation:capaFoto 2.2s cubic-bezier(.16,.8,.24,1) .1s both}
 .anima .revela-foto.visivel figcaption{animation:capaSobe .8s cubic-bezier(.2,.8,.2,1) 1s both}
 .revela-foto{overflow:hidden}
+/* Valores: surgem um a um */
+@keyframes valorEntra{from{opacity:0;transform:translateY(16px) scale(.92)}to{opacity:1;transform:none}}
+.anima .valores.revela-foto{overflow:visible}
+.anima .valores.revela-foto li{opacity:0}
+.anima .valores.revela-foto.visivel li{animation:valorEntra .6s cubic-bezier(.2,.8,.2,1) both}
+.anima .valores.revela-foto.visivel li:nth-child(1){animation-delay:.15s}
+.anima .valores.revela-foto.visivel li:nth-child(2){animation-delay:.3s}
+.anima .valores.revela-foto.visivel li:nth-child(3){animation-delay:.45s}
+.anima .valores.revela-foto.visivel li:nth-child(4){animation-delay:.6s}
+.anima .valores.revela-foto.visivel li:nth-child(5){animation-delay:.75s}
+/* Cards (três frentes e três caminhos): sobem em sequência */
+@keyframes cardEntra{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+.anima .revela-cards.revela-foto{overflow:visible}
+.anima .revela-cards>*{opacity:0}
+.anima .revela-cards.visivel>*{animation:cardEntra .8s cubic-bezier(.2,.8,.2,1) both}
+.anima .revela-cards.visivel>:nth-child(2){animation-delay:.15s}
+.anima .revela-cards.visivel>:nth-child(3){animation-delay:.3s}
+.anima .revela-cards.visivel .frente-icone{animation:valorEntra .6s cubic-bezier(.2,.8,.2,1) both}
+.anima .revela-cards.visivel>:nth-child(1) .frente-icone{animation-delay:.45s}
+.anima .revela-cards.visivel>:nth-child(2) .frente-icone{animation-delay:.6s}
+.anima .revela-cards.visivel>:nth-child(3) .frente-icone{animation-delay:.75s}
 .texto-longo{display:flex;flex-direction:column;gap:18px;max-width:64ch}
 .texto-longo p{color:var(--texto-2)}
 .texto-longo .abre{font-size:20px;color:var(--texto);line-height:1.55}
@@ -765,7 +786,7 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
         <p class="eyebrow">Escolha sua jornada</p>
         <h2>Uma consultoria, três caminhos</h2>
               </div>
-      <div class="jornadas">
+      <div class="jornadas revela-foto revela-cards">
         <article class="jornada j-morar">
           <div class="jornada-topo"><div class="frente-topo"><span class="frente-icone"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11 12 4l8.5 7v8.5a1 1 0 0 1-1 1H15v-6H9v6H4.5a1 1 0 0 1-1-1z"/></svg></span><span class="frente-num">01</span></div><span class="tag">Morar</span><h3>Sua casa própria</h3></div>
           <div class="jornada-corpo">
@@ -874,7 +895,7 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
         <p class="abre">Sou consultor imobiliário, com atuação em três frentes que se complementam: a conquista da casa própria pelo Minha Casa Minha Vida, a construção e multiplicação de patrimônio e o desenvolvimento de empreendimentos imobiliários.</p>
         <p>Minha forma de trabalhar começa pela escuta. Procuro entender o momento, os recursos e os objetivos de cada cliente para apresentar caminhos que façam sentido para sua realidade. Valorizo relações de confiança, comunicação direta e clareza em cada etapa da negociação.</p>
         <p>Sou movido pela família, pela fé cristã e pela vontade de construir negócios que gerem resultados e relações duradouras. Trago esses valores para minha atuação com responsabilidade, dedicação e visão de longo prazo.</p>
-        <ul class="valores"><li>Família</li><li>Fé</li><li>Confiança</li><li>Clareza</li><li>Visão de longo prazo</li></ul>
+        <ul class="valores revela-foto"><li>Família</li><li>Fé</li><li>Confiança</li><li>Clareza</li><li>Visão de longo prazo</li></ul>
       </div>
     </div>
   </section>
@@ -884,7 +905,7 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
         <p class="eyebrow">Três frentes de atuação</p>
         <h2>Onde eu posso te ajudar</h2>
       </div>
-      <div class="frentes">
+      <div class="frentes revela-foto revela-cards">
         <article class="frente">
           <div class="frente-topo"><span class="frente-icone"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 11 12 4l8.5 7v8.5a1 1 0 0 1-1 1H15v-6H9v6H4.5a1 1 0 0 1-1-1z"/></svg></span><span class="frente-num">01</span></div>
           <span class="tag">Morar</span>
