@@ -780,6 +780,15 @@ a.gal-mini:hover img{transform:scale(1.04)}
 .emp-info{font-size:15px;color:var(--texto-2)}
 .emp-foto:not(:has(.emp-img)){background:var(--verde-tinta)!important}
 .emp-ilustra{position:absolute;right:10px;bottom:10px;z-index:1;font-size:11px;font-weight:600;letter-spacing:.02em;text-transform:none;color:#fff;background:rgba(22,52,40,.65);padding:3px 9px;border-radius:999px}
+/* ===== Incorporação ===== */
+.inc-destaque{background:var(--branco);border:1px solid var(--linha);border-top:3px solid var(--dourado);border-radius:var(--raio);padding:28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 14px 34px rgba(20,44,59,.06)}
+.inc-destaque b{font-size:19px;color:var(--preto)}
+.inc-destaque p{color:var(--texto-2);font-size:15.5px}
+.inc-nota{font-size:14px;color:var(--texto-2);border-left:3px solid var(--dourado);padding-left:14px}
+.link-inc{align-self:center;font-weight:700;font-size:14.5px;color:var(--verde);text-decoration:none;min-height:40px;display:inline-flex;align-items:center}
+.link-inc:hover{text-decoration:underline;text-underline-offset:4px}
+#v-incorporacao .frentes{margin-top:4px}
+nav.menu a{padding-inline:8px}
 [hidden],.view[hidden]{display:none!important}
 </style>
 </head>
@@ -806,6 +815,7 @@ a.gal-mini:hover img{transform:scale(1.04)}
         <li><a href="#sobre" data-ir="sobre">Sobre</a></li>
         <li><a href="#empreendimentos" data-ir="empreendimentos">Empreendimentos</a></li>
         <li><a href="#planta" data-ir="planta">Compra na planta</a></li>
+        <li><a href="#incorporacao" data-ir="incorporacao">Incorporação</a></li>
         <li><a href="#simulador" data-ir="simulador">Simulador</a></li>
         <li><a href="#depoimentos" data-ir="depoimentos">Depoimentos</a></li>
         <li><a href="#duvidas" data-ir="duvidas">Dúvidas</a></li>
@@ -868,6 +878,7 @@ a.gal-mini:hover img{transform:scale(1.04)}
             <p>Venda, permuta ou incorporação com análise de viabilidade.</p>
             <ul class="chips"><li>Captação de terrenos</li><li>Permuta</li><li>Incorporação</li></ul>
             <a class="btn btn-wa" data-wa="desenvolver" href="https://wa.me/5511950274532" target="_blank" rel="noopener">Avaliar uma oportunidade</a>
+            <a class="link-inc" href="#incorporacao" data-ir="incorporacao">Entenda a incorporação →</a>
           </div>
         </article>
       </div>
@@ -1041,6 +1052,130 @@ a.gal-mini:hover img{transform:scale(1.04)}
           <ul><li>Entrada parcelada durante a obra</li><li>Mais opções de planta e andar</li><li>Tempo para se organizar até as chaves</li><li>Potencial de valorização até a entrega</li></ul>
         </div>
         <a class="btn btn-wa" data-wa="planta" href="https://wa.me/5511950274532" target="_blank" rel="noopener">Tirar dúvidas sobre compra na planta</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== INCORPORAÇÃO ===================== -->
+<div class="view" id="v-incorporacao" data-view="incorporacao" hidden>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Incorporação imobiliária</p>
+      <h1>Do terreno ao empreendimento: entenda a incorporação</h1>
+      <p class="lead">Para proprietários de terrenos e investidores que querem transformar uma área em um novo projeto, com análise, clareza e segurança em cada etapa.</p>
+    </div>
+  </section>
+
+  <section class="band bg-gelo">
+    <div class="wrap trabalho">
+      <div class="trabalho-txt">
+        <p class="eyebrow">O que é</p>
+        <p class="frase-grande">Incorporação é o caminho que transforma um terreno em um empreendimento.</p>
+        <p class="lead">É a atividade de planejar, aprovar e vender as unidades de um prédio ou condomínio antes ou durante a construção. Quem organiza esse processo é a incorporadora, que reúne o terreno, o projeto, a obra e as vendas em um só negócio.</p>
+        <p class="lead">Na prática, um terreno parado pode se tornar apartamentos, casas ou salas comerciais, e o proprietário pode participar desse resultado de diferentes formas.</p>
+      </div>
+      <div class="inc-destaque">
+        <span class="frente-icone"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="17" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+        <b>Regulada por lei</b>
+        <p>A incorporação segue a Lei nº 4.591/1964. Antes de vender as unidades, o empreendimento precisa ter projeto aprovado e o registro da incorporação feito no Cartório de Registro de Imóveis. Isso dá segurança para quem vende o terreno e para quem compra.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band bg-branco">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Quem participa</p><h2>Três peças de um mesmo projeto</h2></div>
+      <div class="frentes revela-foto revela-cards">
+        <article class="frente">
+          <div class="frente-topo"><span class="frente-icone"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 20v-5l4-3 4 3v5"/><path d="M15 20v-9l3-2 3 2v9"/></svg></span><span class="frente-num">01</span></div>
+          <span class="tag">Proprietário</span>
+          <h3>O dono do terreno</h3>
+          <p>Entra com a área. Pode vender, trocar por unidades ou participar do resultado do empreendimento.</p>
+        </article>
+        <article class="frente">
+          <div class="frente-topo"><span class="frente-icone"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="17" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span class="frente-num">02</span></div>
+          <span class="tag">Incorporadora</span>
+          <h3>Quem estrutura o negócio</h3>
+          <p>Estuda a viabilidade, aprova o projeto, registra a incorporação e coordena as vendas.</p>
+        </article>
+        <article class="frente">
+          <div class="frente-topo"><span class="frente-icone"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></svg></span><span class="frente-num">03</span></div>
+          <span class="tag">Construtora</span>
+          <h3>Quem executa a obra</h3>
+          <p>Constrói o empreendimento. Em muitos casos, a incorporadora e a construtora são a mesma empresa.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band bg-gelo">
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Para quem tem um terreno</p><h2>Formas de negociar a sua área</h2><p class="lead">Cada terreno e cada proprietário pedem um formato diferente. A escolha depende do seu objetivo, do seu prazo e do potencial da área.</p></div>
+      <div class="frentes revela-foto revela-cards">
+        <article class="frente">
+          <div class="frente-topo"><span class="frente-icone"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4z"/><path d="M8 7V5h8v2"/><path d="M9 13h6"/></svg></span><span class="frente-num">01</span></div>
+          <span class="tag">Venda</span>
+          <h3>Venda do terreno</h3>
+          <p>Você recebe o valor combinado e encerra a sua participação. É o caminho mais simples e rápido.</p>
+        </article>
+        <article class="frente">
+          <div class="frente-topo"><span class="frente-icone"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13l-3-3"/><path d="M20 16H7l3 3"/></svg></span><span class="frente-num">02</span></div>
+          <span class="tag">Permuta</span>
+          <h3>Troca por unidades</h3>
+          <p>Em vez de dinheiro, você recebe apartamentos ou salas do futuro empreendimento. Também existe a permuta financeira, com participação nas vendas.</p>
+        </article>
+        <article class="frente">
+          <div class="frente-topo"><span class="frente-icone"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="3"/><circle cx="16" cy="9" r="3"/><path d="M3 19c.8-3 2.8-4.5 5-4.5s4.2 1.5 5 4.5M11 19c.8-3 2.8-4.5 5-4.5s4.2 1.5 5 4.5"/></svg></span><span class="frente-num">03</span></div>
+          <span class="tag">Parceria</span>
+          <h3>Participação no projeto</h3>
+          <p>O proprietário se torna parceiro do empreendimento e participa do resultado, assumindo também parte dos riscos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band bg-branco">
+    <div class="wrap split">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <p class="eyebrow">Como funciona</p>
+        <p class="frase-grande">Do primeiro estudo até a entrega das chaves.</p>
+        <p class="lead">Um empreendimento leva alguns anos para sair do papel. Conhecer cada etapa ajuda a tomar decisões com mais segurança.</p>
+      </div>
+      <ol class="linha-tempo">
+        <li class="revela-foto revela-passo"><span class="bola">1</span><div><h3>Análise do terreno</h3><p>Localização, metragem, documentação e o que a legislação municipal permite construir na área.</p></div></li>
+        <li class="revela-foto revela-passo"><span class="bola">2</span><div><h3>Estudo de viabilidade</h3><p>Qual produto faz sentido para a região, quantas unidades cabem, custos estimados e potencial de vendas.</p></div></li>
+        <li class="revela-foto revela-passo"><span class="bola">3</span><div><h3>Proposta e negociação</h3><p>Definição do formato (venda, permuta ou parceria), valores, prazos e garantias em contrato.</p></div></li>
+        <li class="revela-foto revela-passo"><span class="bola">4</span><div><h3>Aprovações e registro</h3><p>Projeto aprovado na prefeitura e registro da incorporação em cartório, antes do lançamento.</p></div></li>
+        <li class="revela-foto revela-passo"><span class="bola">5</span><div><h3>Lançamento e vendas</h3><p>As unidades são lançadas e vendidas, muitas vezes na planta.</p></div></li>
+        <li class="revela-foto revela-passo"><span class="bola">6</span><div><h3>Obra e entrega</h3><p>Construção do empreendimento e entrega das unidades aos compradores e, na permuta, ao proprietário.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band bg-gelo">
+    <div class="wrap split">
+      <div class="quadros" style="position:static">
+        <div class="quadro verde">
+          <h3>O que é avaliado no terreno</h3>
+          <ul><li>Localização e demanda da região</li><li>Metragem, formato e topografia</li><li>Zoneamento e potencial construtivo</li><li>Documentação e situação da matrícula</li><li>Acesso, infraestrutura e entorno</li></ul>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <p class="eyebrow">Onde o Guilherme entra</p>
+        <p class="frase-grande">Visão de negócio para conectar as pontas.</p>
+        <p class="lead">Atuo na identificação e captação de terrenos, na análise preliminar do seu potencial e na estruturação das negociações, incluindo venda e permuta. Conecto proprietários, investidores e incorporadoras para desenvolver projetos viáveis.</p>
+        <p class="inc-nota">A análise preliminar é um primeiro olhar sobre a área. As decisões finais contam também com estudos técnicos e jurídicos feitos por profissionais especializados.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-sm bg-verde-escuro lp-final on-dark">
+    <div class="wrap lp-final-wrap">
+      <div><h2>Tem um terreno ou quer investir em incorporação?</h2><p>Conte sobre a área ou a oportunidade. A primeira conversa é sem compromisso.</p></div>
+      <div class="lp-final-acoes">
+        <a class="btn btn-ouro" data-wa="incorporacao" href="https://wa.me/5511950274532" target="_blank" rel="noopener">Avaliar meu terreno</a>
+        <a class="btn btn-linha" data-wa="investir" href="https://wa.me/5511950274532" target="_blank" rel="noopener">Quero investir</a>
       </div>
     </div>
   </section>
@@ -1304,6 +1439,7 @@ a.gal-mini:hover img{transform:scale(1.04)}
         <li><a href="#sobre" data-ir="sobre">Sobre</a></li>
         <li><a href="#empreendimentos" data-ir="empreendimentos">Empreendimentos</a></li>
         <li><a href="#planta" data-ir="planta">Compra na planta</a></li>
+        <li><a href="#incorporacao" data-ir="incorporacao">Incorporação</a></li>
         <li><a href="#simulador" data-ir="simulador">Simulador</a></li>
         <li><a href="#duvidas" data-ir="duvidas">Dúvidas</a></li>
       </ul>
@@ -1358,6 +1494,7 @@ a.gal-mini:hover img{transform:scale(1.04)}
     morar: 'Olá, Guilherme! Quero entender minhas possibilidades para comprar meu imóvel.',
     investir: 'Olá, Guilherme! Quero conversar sobre investimentos imobiliários.',
     desenvolver: 'Olá, Guilherme! Tenho um terreno ou uma oportunidade e quero avaliar.',
+    incorporacao: 'Olá, Guilherme! Vim pela página de incorporação e tenho um terreno para avaliar.',
     planta: 'Olá, Guilherme! Tenho dúvidas sobre comprar um imóvel na planta.'
   };
   function wa(texto){ return 'https://wa.me/' + NUM + '?text=' + encodeURIComponent(texto); }
@@ -1424,7 +1561,7 @@ a.gal-mini:hover img{transform:scale(1.04)}
   });
 
   /* Navegação entre páginas */
-  var VIEWS = ['inicio','sobre','empreendimentos','planta','simulador','depoimentos','duvidas','contato'];
+  var VIEWS = ['inicio','sobre','empreendimentos','planta','incorporacao','simulador','depoimentos','duvidas','contato'];
   var menu = document.getElementById('menu'), menuBtn = document.getElementById('menu-btn');
   function mostrar(v, rolar){
     var lp = (v === 'lp');
@@ -1689,6 +1826,7 @@ a.gal-mini:hover img{transform:scale(1.04)}
       fala(['Anotado' + nomeOu() + '. O Guilherme faz a análise preliminar e conecta proprietários, investidores e incorporadoras.'], function(){
         mostrar([
           {t:'Falar com o Guilherme no WhatsApp', link:linkWa(), principal:true},
+          {t:'Entender a incorporação', ir:irPagina('incorporacao')},
           {t:'Voltar ao início', ir:menu}
         ]);
       });
