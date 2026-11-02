@@ -664,6 +664,42 @@ footer.site{background:var(--verde-escuro);color:var(--sobre-verde)}
 .lp-seguro{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--texto-2)}
 .lp-seguro svg{width:16px;height:16px;flex:none;margin-top:2px;color:var(--verde)}
 .lp-seguro a{color:var(--verde);font-weight:700}
+/* Etapas do envio: deixa claro que o contato termina no WhatsApp */
+.lp-etapas{list-style:none;margin:0;padding:0;display:flex;gap:6px;flex-wrap:wrap}
+.lp-etapas li{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--texto-2);background:var(--gelo);border:1px solid var(--linha);border-radius:999px;padding:4px 10px 4px 4px}
+.lp-etapas li span{width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--linha);color:var(--texto-2);font-size:11.5px}
+.lp-etapas li.atual{color:var(--verde);border-color:var(--verde);background:var(--verde-tinta)}
+.lp-etapas li.atual span{background:var(--verde);color:var(--branco)}
+.lp-etapas li.feita{color:var(--texto-2)}
+.lp-etapas li.feita span{background:var(--dourado-claro);color:var(--ouro-texto)}
+.lp-aviso-wa{font-size:13.5px;line-height:1.5;color:var(--texto-2);margin-top:-6px}
+.lp-aviso-wa b{color:var(--texto)}
+.lead-ok .lp-aviso-wa{margin-top:-4px}
+.lp-corrigir{background:none;border:0;padding:0;font:700 13.5px var(--corpo);color:var(--verde);text-decoration:underline;cursor:pointer}
+.btn.so-lp{display:none}
+.modo-lp .btn.so-lp{display:inline-flex}
+/* Prova de credibilidade junto ao formulário */
+.lp-prova{display:flex;align-items:center;gap:14px;padding:12px 14px;border:1px solid var(--linha);border-radius:12px;background:var(--gelo)}
+.lp-prova-fotos{display:flex;flex:none}
+.lp-prova-fotos img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--branco);margin-left:-10px;box-shadow:0 2px 6px rgba(20,44,59,.12)}
+.lp-prova-fotos img:first-child{margin-left:0}
+.lp-prova p{display:flex;flex-direction:column;gap:2px;font-size:14px;line-height:1.35;min-width:0}
+.lp-prova b{color:var(--preto)}
+.lp-prova span{font-size:12.5px;color:var(--texto-2)}
+.lp-prova a{color:var(--verde);font-weight:700}
+@media (max-width:560px){.lp-prova{gap:12px;padding:12px}.lp-prova-fotos img{width:32px;height:32px;margin-left:-12px}.lp-prova-fotos img:nth-child(n+4){display:none}}
+footer.site .legal a:not(.credito-dev){color:inherit;text-decoration:underline}
+/* Empreendimentos: lazer em etiquetas */
+.emp-lazer{display:flex;flex-direction:column;gap:8px}
+.emp-lazer-tit{font-size:15px;color:var(--texto-2)}
+.emp-lazer ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.emp-lazer li{font-size:12.5px;font-weight:600;color:var(--verde);background:var(--verde-tinta);border-radius:999px;padding:4px 10px}
+.emp-lazer li[hidden]{display:none}
+.emp-lazer-ver{background:none;border:0;padding:0;font:700 12.5px var(--corpo);color:var(--ouro-texto);cursor:pointer;text-decoration:underline}
+.emp-lazer li:has(.emp-lazer-ver){background:transparent;padding:4px 4px}
+.depo .avatar-foto{object-fit:cover;padding:0;border:2px solid var(--dourado)}
+.depo-bloco[hidden]{display:none!important}
+.gal-faixa + .depos{margin-top:28px}
 .lp-passos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
 .lp-passos .canal{position:relative}
 .lp-passos .frente-num{position:absolute;top:22px;right:24px}
@@ -928,6 +964,7 @@ nav.menu a{padding-inline:8px}
         <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-04.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
         <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-12.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
       </div>
+      <div class="depos depo-bloco" data-depo-lista="2" hidden></div>
       <div class="sec-foot"><a class="btn btn-linha" style="color:var(--verde)" href="#depoimentos" data-ir="depoimentos">Ver galeria de clientes</a></div>
     </div>
   </section>
@@ -1253,6 +1290,12 @@ nav.menu a{padding-inline:8px}
       <p class="lead">Momentos reais de clientes que conquistaram o imóvel com a orientação do Guilherme.</p>
     </div>
   </section>
+  <section class="band bg-branco depo-bloco" hidden>
+    <div class="wrap">
+      <div class="sec-head"><p class="eyebrow">Depoimentos</p><h2>O que dizem os clientes</h2></div>
+      <div class="depos" data-depo-lista="todos"></div>
+    </div>
+  </section>
   <section class="band bg-gelo">
     <div class="wrap">
       <div class="gal-cab"><p class="eyebrow">Galeria de clientes</p></div>
@@ -1309,6 +1352,7 @@ nav.menu a{padding-inline:8px}
         <details><summary>Quais custos existem além da entrada?</summary><div class="resp"><p>Os principais são o ITBI (imposto municipal sobre a transmissão do imóvel), o registro em cartório e as taxas do banco, como a de avaliação. Também vale considerar mudança, móveis e condomínio. Eu passo uma estimativa antes de você decidir.</p></div></details>
         <details><summary>Você também atende investidores e donos de terreno?</summary><div class="resp"><p>Sim. Além da casa própria, atuo com investimento imobiliário (análise de localização, liquidez e renda) e com terrenos, incluindo captação, permuta e incorporação.</p></div></details>
         <details><summary>Em quais regiões você atende?</summary><div class="resp"><p>Atendo São Paulo e a Grande São Paulo.</p></div></details>
+        <details><summary>Como meus dados são usados?</summary><div class="resp"><p>O site não tem cadastro e não grava o que você digita no formulário ou na conversa com o Cedrinho. Essas informações só montam a mensagem que você mesmo envia pelo WhatsApp. A partir daí, uso seus dados apenas para responder ao seu contato e dar andamento ao seu atendimento. Se quiser que eu apague a nossa conversa, é só pedir.</p></div></details>
       </div>
     </div>
   </section>
@@ -1329,15 +1373,29 @@ nav.menu a{padding-inline:8px}
         <div class="lp-assina-mini"><img src="assets/guilherme-mini.jpg" alt=""><div><b>Guilherme Azevedo</b><span>Consultor imobiliário · CRECI 189037</span></div></div>
         <p class="eyebrow">Atendimento gratuito · São Paulo e Grande SP</p>
         <h1 class="lp-titulo"><span class="so-normal">Vamos conversar sobre o seu próximo passo?</span><span class="so-lp">Descubra quais imóveis cabem no seu bolso em São Paulo</span></h1>
-        <p class="lead lp-lead">Receba uma análise do seu perfil com FGTS, entrada e parcelas. Sem compromisso e sem pressa.</p>
+        <p class="lead lp-lead"><span class="so-normal">Comprar, investir ou negociar um terreno: conte o seu momento e receba uma orientação clara. Sem compromisso e sem pressa.</span><span class="so-lp">Receba uma análise do seu perfil com FGTS, entrada e parcelas. Sem compromisso e sem pressa.</span></p>
         <ul class="lp-beneficios">
           <li>Opções do Minha Casa Minha Vida, na planta e prontas</li>
           <li>Simulação real com o banco, feita junto com você</li>
+          <li class="so-normal">Análise de investimentos e de terrenos, incluindo permuta</li>
           <li>Acompanhamento do primeiro contato até as chaves</li>
         </ul>
 
+        <div class="lp-prova">
+          <div class="lp-prova-fotos" aria-hidden="true">
+            <img src="assets/clientes/cliente-18.jpg" alt="" loading="lazy"><img src="assets/clientes/cliente-15.jpg" alt="" loading="lazy"><img src="assets/clientes/cliente-04.jpg" alt="" loading="lazy"><img src="assets/clientes/cliente-12.jpg" alt="" loading="lazy">
+          </div>
+          <p><b>Clientes reais que já compraram com o Guilherme</b><span>CRECI 189037 · <a href="https://www.crecisp.gov.br/" target="_blank" rel="noopener">consulte no site do CRECI-SP</a></span></p>
+        </div>
+
         <form class="lp-form" id="ct2-form" novalidate>
-          <div class="lp-form-cab"><b>Receba sua análise gratuita</b><span>Leva menos de um minuto</span></div>
+          <div class="lp-form-cab">
+            <b>Receba sua análise gratuita</b>
+            <ol class="lp-etapas" aria-label="Como funciona o envio">
+              <li class="atual"><span>1</span>Preencha aqui</li>
+              <li><span>2</span>Envie pelo WhatsApp</li>
+            </ol>
+          </div>
           <div class="grupo" id="ct2-g-obj" role="radiogroup" aria-labelledby="ct2-r-obj">
             <span class="rotulo" id="ct2-r-obj">O que você procura? *</span>
             <div class="chips-sel">
@@ -1349,19 +1407,19 @@ nav.menu a{padding-inline:8px}
             </div>
             <p class="msg-erro" id="ct2-e-obj" hidden>Escolha uma opção.</p>
           </div>
-          <div class="dupla">
-            <div class="campo"><label for="ct2-nome">Seu nome *</label><input id="ct2-nome" autocomplete="name" placeholder="Como posso te chamar?"><p class="msg-erro" id="ct2-e-nome" hidden>Escreva seu nome.</p></div>
-            <div class="campo"><label for="ct2-whats">WhatsApp *</label><input id="ct2-whats" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(11) 90000-0000"><p class="msg-erro" id="ct2-e-whats" hidden>Informe um número com DDD.</p></div>
-          </div>
-          <label class="consent"><input type="checkbox" id="ct2-lgpd"><span>Autorizo o contato de Guilherme Azevedo pelo WhatsApp para tratar do meu interesse. Meus dados não são compartilhados.</span></label>
-          <p class="msg-erro" id="ct2-e-lgpd" hidden>Marque a autorização para continuar.</p>
-          <button type="submit" class="btn btn-wa lp-enviar">Quero minha análise gratuita</button>
-          <p class="lp-seguro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Seus dados ficam só com o Guilherme. Ou, se preferir, <a data-wa="geral" href="https://wa.me/5511950274532" target="_blank" rel="noopener">fale direto no WhatsApp</a>.</p>
+          <div class="campo"><label for="ct2-nome">Seu nome *</label><input id="ct2-nome" autocomplete="name" placeholder="Como posso te chamar?"><p class="msg-erro" id="ct2-e-nome" hidden>Escreva seu nome.</p></div>
+          <button type="submit" class="btn btn-wa lp-enviar">Continuar no WhatsApp</button>
+          <p class="lp-aviso-wa">Ao continuar, o WhatsApp abre com a sua mensagem pronta. <b>O contato só é concluído quando você tocar em enviar lá.</b></p>
+          <p class="lp-seguro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>O site não grava o que você digita. Seu nome e sua escolha vão apenas na mensagem que você envia, e o Guilherme usa essas informações só para responder ao seu contato. Se preferir, <a data-wa="geral" href="https://wa.me/5511950274532" target="_blank" rel="noopener">escreva direto no WhatsApp</a>.</span></p>
           <div class="lead-ok" id="ct2-ok" hidden tabindex="-1">
-            <div class="selo-ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <h2 id="ct2-ok-titulo">Quase lá!</h2>
-            <p>Sua mensagem já está pronta no WhatsApp. É só tocar em enviar para o Guilherme receber seus dados e te responder.</p>
-            <a class="btn btn-wa" id="ct2-ok-wa" href="https://wa.me/5511950274532" target="_blank" rel="noopener">Abrir WhatsApp e enviar</a>
+            <ol class="lp-etapas" aria-label="Andamento do contato">
+              <li class="feita"><span>✓</span>Dados preenchidos</li>
+              <li class="atual"><span>2</span>Enviar no WhatsApp</li>
+            </ol>
+            <h2 id="ct2-ok-titulo">Falta só enviar!</h2>
+            <p><b>Seu contato ainda não chegou ao Guilherme.</b> Abrimos o WhatsApp com a mensagem pronta: toque em enviar lá para ele receber e te responder.</p>
+            <a class="btn btn-wa lp-enviar" id="ct2-ok-wa" href="https://wa.me/5511950274532" target="_blank" rel="noopener">Abrir WhatsApp e enviar</a>
+            <p class="lp-aviso-wa">O WhatsApp não abriu? Toque no botão acima. <button type="button" class="lp-corrigir" id="ct2-corrigir">Corrigir meus dados</button></p>
           </div>
         </form>
       </div>
@@ -1416,10 +1474,12 @@ nav.menu a{padding-inline:8px}
 
   <section class="band-sm bg-verde-escuro lp-final on-dark">
     <div class="wrap lp-final-wrap">
-      <div><h2>Pronto para dar o próximo passo?</h2><p>A análise é gratuita e sem compromisso.</p></div>
+      <div><h2><span class="so-normal">Morar, investir ou negociar um terreno?</span><span class="so-lp">Pronto para dar o próximo passo?</span></h2><p><span class="so-normal">Seja qual for o seu caminho, a primeira conversa é gratuita e sem compromisso.</span><span class="so-lp">A análise é gratuita e sem compromisso.</span></p></div>
       <div class="lp-final-acoes">
-        <button type="button" class="btn btn-ouro" data-vai-form>Quero minha análise gratuita</button>
-        <a class="btn btn-linha" data-wa="geral" href="https://wa.me/5511950274532" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <button type="button" class="btn btn-ouro" data-vai-form><span class="so-normal">Quero comprar meu imóvel</span><span class="so-lp">Quero minha análise gratuita</span></button>
+        <a class="btn btn-linha so-normal" data-wa="investir" href="https://wa.me/5511950274532" target="_blank" rel="noopener">Quero investir</a>
+        <a class="btn btn-linha so-normal" data-wa="desenvolver" href="https://wa.me/5511950274532" target="_blank" rel="noopener">Tenho um terreno</a>
+        <a class="btn btn-linha so-lp" data-wa="geral" href="https://wa.me/5511950274532" target="_blank" rel="noopener">Falar no WhatsApp</a>
       </div>
     </div>
   </section>
@@ -1455,7 +1515,7 @@ nav.menu a{padding-inline:8px}
   </div>
   <div class="legal">
     <div class="wrap">
-      <span>Guilherme Azevedo · Consultor imobiliário · CRECI 189037</span>
+      <span>Guilherme Azevedo · Consultor imobiliário · CRECI 189037 (<a href="https://www.crecisp.gov.br/" target="_blank" rel="noopener">consultar no CRECI-SP</a>)</span>
       <span>© 2026 · Site feito por <a class="credito-dev" href="https://sites.nickgomes.com" target="_blank" rel="noopener">Nick Gomes</a></span>
     </div>
   </div>
@@ -1502,27 +1562,46 @@ nav.menu a{padding-inline:8px}
   var ICONE_WA = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19l1.4-4.2A8 8 0 1 1 9 18.6L4 19z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
   function iconesWa(){ document.querySelectorAll('.btn-wa').forEach(function(b){ if (!b.querySelector('svg')) b.insertAdjacentHTML('afterbegin', ICONE_WA); }); }
 
-  /* Empreendimentos: dados públicos das construtoras (conferir com o Guilherme) */
+  /* Empreendimentos: dados públicos das construtoras, conferidos em 02/11/2026 (apto.vc).
+     Campos opcionais: endereco, estrutura, vagas, lazer (lista). Campo vazio não aparece no card. */
   var EMP = [
-    {nome:'Urbano First', construtora:'Cavazani', regiao:'Barreira Grande, SP', tipo:'1 e 2 dorms · 32 e 38 m²', entrega:'Previsão jan/2028', preco:'R$ 225 mil', selo:'Lançamento · MCMV', foto:'assets/emp-urbano-first.jpg'},
-    {nome:'Vivaz Origens da Mooca', construtora:'Vivaz (Cyrela)', regiao:'Mooca, SP', tipo:'1 e 2 dorms · 25 a 35 m²', entrega:'Previsão ago/2029', preco:'R$ 216,9 mil', selo:'Lançamento · MCMV', foto:'assets/emp-vivaz-origens.jpg'},
+    {nome:'Urbano First', construtora:'Cavazani', regiao:'Barreira Grande, Zona Leste', endereco:'Rua Amelia Vanso Magnoli', tipo:'1 e 2 dorms · 32 e 38 m²', vagas:'Sem vaga de garagem', entrega:'Previsão jan/2028', preco:'R$ 225 mil', selo:'Lançamento · MCMV', foto:'assets/emp-urbano-first.jpg',
+      lazer:['Piscina adulto','Salão de festas','Brinquedoteca','Bicicletário']},
+    {nome:'Vivaz Origens da Mooca', construtora:'Vivaz (Cyrela)', regiao:'Mooca, Zona Leste', endereco:'Rua da Mooca', estrutura:'1 torre · 25 andares · 616 unidades', tipo:'1 e 2 dorms · 25 a 35 m²', vagas:'Sem vaga de garagem', entrega:'Previsão ago/2029', preco:'R$ 216,9 mil', selo:'Lançamento · MCMV', foto:'assets/emp-vivaz-origens.jpg',
+      lazer:['Piscina','Academia','Spinning','Salão de festas','Brinquedoteca','Playground','Espaço teens','Espaço beleza','Lavanderia','Pet place','Redário']},
     {nome:'Jardim das Rosas', construtora:'Em destaque', regiao:'Zona Leste, SP', tipo:null, entrega:null, preco:null, selo:'Destaque', foto:'assets/emp-jardim-das-rosas.jpg'}
   ];
-  function campo(v){ return v ? '<dd>' + v + '</dd>' : '<dd class="pend">a confirmar</dd>'; }
+  function linha(rotulo, v){ return v ? '<dt>' + rotulo + '</dt><dd>' + v + '</dd>' : ''; }
+  function lazerEmp(l){
+    if (!l || !l.length) return '';
+    var mostra = 5, extra = l.length - mostra;
+    return '<div class="emp-lazer"><span class="emp-lazer-tit">Lazer</span><ul>' +
+      l.map(function(x, i){ return '<li' + (i >= mostra ? ' class="emp-lazer-mais" hidden' : '') + '>' + x + '</li>'; }).join('') +
+      (extra > 0 ? '<li><button type="button" class="emp-lazer-ver" aria-expanded="false">+' + extra + ' itens</button></li>' : '') +
+      '</ul></div>';
+  }
   function cardEmp(e){
     var foto = e.foto
       ? '<img class="emp-img" src="' + e.foto + '" alt="Imagem do empreendimento ' + e.nome + '" loading="lazy">'
       : '<img src="assets/simbolo-dourado.svg" alt=""><span class="emp-foto-txt">' + e.regiao + '</span>';
+    var local = e.endereco ? e.endereco + ' · ' + e.regiao : e.regiao;
     return '<article class="emp">' +
       '<div class="emp-foto"><span class="emp-status">' + e.selo + '</span>' + foto + (e.ilustrativa ? '<span class="emp-ilustra">Imagem ilustrativa</span>' : '') + '</div>' +
       '<div class="emp-corpo"><span class="emp-construtora">' + e.construtora + '</span><h3>' + e.nome + '</h3>' +
-      (e.tipo ? '<dl><dt>Região</dt>' + campo(e.regiao) + '<dt>Plantas</dt>' + campo(e.tipo) + '<dt>Entrega</dt>' + campo(e.entrega) +
-      '<dt>A partir de</dt>' + (e.preco ? '<dd class="preco">' + e.preco + '</dd>' : '<dd class="pend">consulte</dd>') + '</dl>'
-      : '<dl><dt>Região</dt><dd>' + e.regiao + '</dd></dl><p class="emp-info">Fotos, plantas e condições atualizadas direto com o Guilherme.</p>') +
+      (e.tipo ? '<dl>' + linha('Local', local) + linha('Plantas', e.tipo) + linha('Estrutura', e.estrutura) + linha('Vagas', e.vagas) + linha('Entrega', e.entrega) +
+      '<dt>A partir de</dt>' + (e.preco ? '<dd class="preco">' + e.preco + '</dd>' : '<dd class="pend">consulte</dd>') + '</dl>' + lazerEmp(e.lazer)
+      : '<dl><dt>Local</dt><dd>' + e.regiao + '</dd></dl><p class="emp-info">Fotos, plantas e condições atualizadas direto com o Guilherme.</p>') +
       '<a class="btn btn-wa" target="_blank" rel="noopener" href="' + wa('Olá, Guilherme! Quero conhecer o ' + e.nome + '.') + '">Quero conhecer este imóvel</a>' +
       '</div></article>';
   }
   document.querySelectorAll('[data-emp-lista]').forEach(function(el){ el.innerHTML = EMP.map(cardEmp).join(''); });
+  document.addEventListener('click', function(ev){
+    var b = ev.target.closest('.emp-lazer-ver'); if (!b) return;
+    var aberto = b.getAttribute('aria-expanded') === 'true';
+    b.closest('ul').querySelectorAll('.emp-lazer-mais').forEach(function(li){ li.hidden = aberto; });
+    b.setAttribute('aria-expanded', aberto ? 'false' : 'true');
+    b.textContent = aberto ? '+' + b.closest('ul').querySelectorAll('.emp-lazer-mais').length + ' itens' : 'ver menos';
+  });
   iconesWa();
   /* Revela os cards de empreendimento quando entram na tela */
   (function(){
@@ -1545,20 +1624,26 @@ nav.menu a{padding-inline:8px}
     window.__revelaFotos();
   })();
 
-  /* Depoimentos: espaços para os textos reais do Guilherme */
-  /* Depoimentos: incluir aqui os textos reais quando o Guilherme enviar */
+  /* Depoimentos reais: incluir aqui quando o Guilherme enviar. Enquanto a lista estiver vazia, os blocos ficam escondidos.
+     Modelo: {texto:'...', nome:'Ana e Pedro', tag:'Primeiro imóvel', local:'Mooca, SP', detalhe:'Comprou na planta', foto:'assets/clientes/cliente-04.jpg'}
+     (tag, local, detalhe e foto são opcionais; a foto deve ser do próprio cliente do depoimento) */
   var DEPO = [];
   function iniciais(n){ return n.replace(/^Sr\.\s*/,'').split(/\s+/).filter(function(p){ return /^[A-ZÁ-Ú]/.test(p); }).slice(0,2).map(function(p){ return p[0]; }).join(''); }
   function cardDepo(d, i){
-    return '<article class="depo"><div class="depo-topo"><span class="depo-tag">' + d.tag + '</span></div>' +
+    var avatar = d.foto
+      ? '<img class="avatar avatar-foto" src="' + d.foto + '" alt="" loading="lazy">'
+      : '<div class="avatar' + (i % 2 ? ' av-azul' : '') + '" aria-hidden="true">' + iniciais(d.nome) + '</div>';
+    var sub = [d.local, d.detalhe].filter(Boolean).join(' · ');
+    return '<article class="depo">' + (d.tag ? '<div class="depo-topo"><span class="depo-tag">' + d.tag + '</span></div>' : '') +
       '<div class="aspas" aria-hidden="true">“</div>' +
       '<p>' + d.texto + '</p>' +
-      '<div class="quem"><div class="avatar' + (i % 2 ? ' av-azul' : '') + '" aria-hidden="true">' + iniciais(d.nome) + '</div><div><b>' + d.nome + '</b><span>' + d.local + ' · ' + d.detalhe + '</span></div></div></article>';
+      '<div class="quem">' + avatar + '<div><b>' + d.nome + '</b>' + (sub ? '<span>' + sub + '</span>' : '') + '</div></div></article>';
   }
   document.querySelectorAll('[data-depo-lista]').forEach(function(el){
     var n = el.dataset.depoLista === 'todos' ? DEPO.length : parseInt(el.dataset.depoLista, 10);
     el.innerHTML = DEPO.slice(0, n).map(cardDepo).join('');
   });
+  document.querySelectorAll('.depo-bloco').forEach(function(b){ b.hidden = DEPO.length === 0; });
 
   /* Navegação entre páginas */
   var VIEWS = ['inicio','sobre','empreendimentos','planta','incorporacao','simulador','depoimentos','duvidas','contato'];
@@ -1653,33 +1738,36 @@ nav.menu a{padding-inline:8px}
     function erro(id, on, el){ $(id).hidden = !on; if (el) el.classList.toggle('invalido', on); return on; }
     function irForm(){ form.scrollIntoView({behavior:'smooth', block:'center'}); setTimeout(function(){ var p = form.querySelector('input'); if (p) p.focus({preventScroll:true}); }, 500); }
     document.querySelectorAll('[data-vai-form]').forEach(function(b){ b.addEventListener('click', irForm); });
-    $('ct2-whats').addEventListener('input', function(){
-      var d = this.value.replace(/\D/g,'').slice(0, 11), f = d;
-      if (d.length > 2) f = '(' + d.slice(0,2) + ') ' + d.slice(2);
-      if (d.length > 7) f = '(' + d.slice(0,2) + ') ' + d.slice(2, d.length - 4) + '-' + d.slice(-4);
-      this.value = f;
-    });
     form.addEventListener('change', function(e){
       if (e.target.name === 'ct2obj') erro('ct2-e-obj', false);
-      if (e.target.id === 'ct2-lgpd' && e.target.checked) erro('ct2-e-lgpd', false);
     });
+    /* O WhatsApp de quem envia já chega para o Guilherme, por isso o formulário pede só o nome e o objetivo */
+    var PEDIDO = {
+      'Investir': 'Quero conversar sobre investimentos imobiliários.',
+      'Terreno': 'Tenho um terreno e quero avaliar as possibilidades.'
+    };
     form.addEventListener('submit', function(e){
       e.preventDefault();
       var foco = null;
       if (erro('ct2-e-obj', !marcado('ct2obj'))) foco = foco || $('ct2-o1');
       if (erro('ct2-e-nome', $('ct2-nome').value.trim().length < 2, $('ct2-nome').parentNode)) foco = foco || $('ct2-nome');
-      if (erro('ct2-e-whats', $('ct2-whats').value.replace(/\D/g,'').length < 10, $('ct2-whats').parentNode)) foco = foco || $('ct2-whats');
-      if (erro('ct2-e-lgpd', !$('ct2-lgpd').checked)) foco = foco || $('ct2-lgpd');
       if (foco){ foco.focus(); return; }
-      var lead = {nome:$('ct2-nome').value.trim(), whatsapp:$('ct2-whats').value, objetivo:marcado('ct2obj'), origem:origem, pagina: document.documentElement.classList.contains('modo-lp') ? 'lp' : 'contato'};
-      /* Conversão para os anúncios (Meta e Google), quando os códigos forem instalados */
+      var lead = {nome:$('ct2-nome').value.trim(), objetivo:marcado('ct2obj'), origem:origem, pagina: document.documentElement.classList.contains('modo-lp') ? 'lp' : 'contato'};
+      /* Conversão para os anúncios (Meta e Google), quando os códigos forem instalados.
+         Conta quem abriu o WhatsApp pelo formulário, não quem de fato enviou a mensagem. */
       try { if (window.fbq) fbq('track', 'Lead'); if (window.gtag) gtag('event', 'generate_lead'); (window.dataLayer = window.dataLayer || []).push({event:'lead', objetivo:lead.objetivo}); } catch(err){}
-      $('ct2-ok-titulo').textContent = 'Quase lá, ' + lead.nome.split(' ')[0] + '!';
-      var link = wa('Olá, Guilherme! Meu nome é ' + lead.nome + ' (WhatsApp ' + lead.whatsapp + '). Quero minha análise gratuita. Procuro: ' + lead.objetivo + '.');
+      $('ct2-ok-titulo').textContent = 'Falta só enviar, ' + lead.nome.split(' ')[0] + '!';
+      var pedido = PEDIDO[lead.objetivo] || ('Quero minha análise gratuita. Procuro: ' + lead.objetivo + '.');
+      var link = wa('Olá, Guilherme! Meu nome é ' + lead.nome + '. ' + pedido);
       $('ct2-ok-wa').href = link;
       try { window.open(link, '_blank', 'noopener'); } catch(err){}
       Array.prototype.forEach.call(form.children, function(c){ if (c.id !== 'ct2-ok') c.hidden = true; });
       $('ct2-ok').hidden = false; $('ct2-ok').focus({preventScroll:true});
+    });
+    $('ct2-corrigir').addEventListener('click', function(){
+      Array.prototype.forEach.call(form.children, function(c){ c.hidden = (c.id === 'ct2-ok') || c.classList.contains('msg-erro'); });
+      form.querySelectorAll('.msg-erro').forEach(function(m){ m.hidden = true; });
+      $('ct2-nome').focus();
     });
     $('copiar-wa').addEventListener('click', function(){
       var btn = this, alvo = $('numero-wa');
