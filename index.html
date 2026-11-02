@@ -1658,10 +1658,11 @@ nav.menu a{padding-inline:8px}
   /* Construtoras e incorporadoras com que o Guilherme trabalha.
      Para incluir: {nome:'Nome', grupo:'Grupo X' (opcional), logo:'assets/construtoras/arquivo.svg' (opcional)}.
      Sem logo, aparece o nome. Com 6 ou mais, a faixa do Início passa a rolar sozinha. */
-  var CONSTRUTORAS = [
-    {nome:'Cavazani'},
-    {nome:'Vivaz', grupo:'Grupo Cyrela'}
-  ];
+  var CONSTRUTORAS = ['Cavazani','Vivaz','Cyrela','Cury','MRV','Tenda','Plano&amp;Plano','Even','EZTEC','Tegra','Gafisa','Tecnisa',
+    'Helbor','Trisul','Lavvi','Lindenberg','You,inc','Kallas','Mitre','Setin','Yuny','Exto','Benx','Vivabenx','Living','MAC',
+    'AAM','Cambur','Netcorp','Diálogo','Tarjab','Kazzas','Casa Viva','Patriani','Conx','Engelux','Fit Casa','Riva',
+    'Vibra Residencial','Magik JC','Ampla','Vitta Residencial','Vinx','Econ','Novvo','EPH','Metrocasa'
+  ].map(function(n){ return {nome:n}; });
   function marca(c){
     return '<div class="ct-marca">' + (c.logo ? '<img src="' + c.logo + '" alt="' + c.nome + '" loading="lazy">' : '<b>' + c.nome + '</b>') +
       (c.grupo ? '<small>' + c.grupo + '</small>' : '') + '</div>';
@@ -1670,11 +1671,15 @@ nav.menu a{padding-inline:8px}
     var itens = CONSTRUTORAS.map(marca).join('');
     if (CONSTRUTORAS.length >= 6){
       el.classList.add('rolando');
-      el.innerHTML = '<div class="ct-trilho"><div class="ct-grupo">' + itens + '</div><div class="ct-grupo" aria-hidden="true">' + itens + '</div></div>';
+      /* velocidade constante: cerca de 3 segundos por marca */
+      el.innerHTML = '<div class="ct-trilho" style="animation-duration:' + (CONSTRUTORAS.length * 3) + 's"><div class="ct-grupo">' + itens + '</div><div class="ct-grupo" aria-hidden="true">' + itens + '</div></div>';
     } else el.innerHTML = itens;
   });
+  /* No Contato, só as 6 primeiras por nome; o restante vira "e mais N" */
   document.querySelectorAll('[data-construtoras-texto]').forEach(function(el){
-    el.innerHTML = CONSTRUTORAS.map(function(c){ return '<b>' + c.nome + '</b>' + (c.grupo ? ' (' + c.grupo + ')' : ''); }).join(' · ');
+    var mostra = 6, resto = CONSTRUTORAS.length - mostra;
+    el.innerHTML = CONSTRUTORAS.slice(0, mostra).map(function(c){ return '<b>' + c.nome + '</b>'; }).join(' · ') +
+      (resto > 0 ? ' e mais ' + resto + ' construtoras e incorporadoras' : '');
   });
   document.addEventListener('click', function(ev){
     var b = ev.target.closest('.emp-lazer-ver'); if (!b) return;
