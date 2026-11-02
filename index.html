@@ -793,6 +793,43 @@ footer.site .legal a:not(.credito-dev){color:inherit;text-decoration:underline}
 @keyframes galEntra{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
 .anima .gal-item.revela-foto,.anima .gal-cta.revela-foto{opacity:0}
 .anima .gal-item.revela-foto.visivel,.anima .gal-cta.revela-foto.visivel{animation:galEntra .8s cubic-bezier(.2,.8,.2,1) both}
+/* Mural: fotos e depoimentos misturados em colunas soltas (estilo mural, com leve inclinação) */
+.galeria.mural{display:block;columns:4 220px;column-gap:18px}
+.mural>*{break-inside:avoid;margin:0 0 18px;width:100%}
+.mural .gal-item,.mural .gal-item.destaque,.mural .gal-item.largo{display:block;aspect-ratio:3/4;height:auto}
+.mural .gal-item:nth-of-type(5n+2){aspect-ratio:1}
+.mural .gal-item:nth-of-type(7n+4){aspect-ratio:4/5}
+.mural .gal-item.largo{aspect-ratio:4/3}
+.mural .gal-item:nth-of-type(odd){rotate:-.6deg}
+.mural .gal-item:nth-of-type(even){rotate:.5deg}
+.mural .gal-item,.mural .gal-depo{transition:rotate .3s ease,box-shadow .3s ease}
+.mural .gal-item:hover{rotate:0deg;box-shadow:0 16px 34px rgba(20,44,59,.16)}
+.mural .gal-cta{aspect-ratio:auto;min-height:260px;rotate:.8deg}
+.gal-depo{position:relative;border-radius:14px;padding:24px 22px 20px;background:var(--branco);border:1px solid var(--linha);box-shadow:0 10px 26px rgba(20,44,59,.08);display:flex;flex-direction:column;gap:14px;rotate:-1.2deg}
+.gal-depo:nth-child(even of .gal-depo){rotate:1deg}
+.gal-depo:hover{rotate:0deg}
+.gal-depo::before{content:"";position:absolute;top:-9px;left:50%;width:74px;height:20px;translate:-50% 0;background:rgba(233,217,180,.85);border-radius:3px;rotate:-3deg;box-shadow:0 2px 4px rgba(0,0,0,.06)}
+.gal-depo .gd-aspas{font-family:var(--serif);font-size:54px;line-height:.5;height:22px;color:var(--dourado)}
+.gal-depo p{font-family:var(--serif);font-style:italic;font-weight:500;font-size:17px;line-height:1.5;color:var(--texto)}
+.gal-depo .gd-quem{display:flex;align-items:center;gap:10px;margin-top:2px}
+.gal-depo .gd-av{width:40px;height:40px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;background:var(--verde-tinta);color:var(--verde);border:1px solid var(--verde)}
+.gal-depo .gd-quem b{display:block;font-size:14.5px;color:var(--preto);line-height:1.25}
+.gal-depo .gd-quem span{font-size:12.5px;font-weight:600;color:var(--ouro-texto)}
+.gal-depo.tom-verde{background:var(--verde-escuro);border-color:var(--verde-escuro)}
+.gal-depo.tom-verde p,.gal-depo.tom-verde .gd-quem b{color:var(--branco)}
+.gal-depo.tom-verde .gd-quem span{color:var(--dourado-claro)}
+.gal-depo.tom-verde .gd-av{background:rgba(255,255,255,.08);color:var(--dourado-claro);border-color:var(--dourado)}
+.gal-depo.tom-areia{background:#F3EAD6;border-color:#E6D8B8}
+.gal-depo.tom-areia::before{background:rgba(30,69,53,.18)}
+.anima .gal-depo.revela-foto{opacity:0}
+.anima .gal-depo.revela-foto.visivel{animation:galEntra .8s cubic-bezier(.2,.8,.2,1) both}
+@media (max-width:700px){
+  .galeria.mural{columns:2;column-gap:12px}
+  .mural>*{margin-bottom:12px}
+  .mural .gal-depo{column-span:all;margin:10px 4px 22px;width:auto}
+  .mural .gal-cta{min-height:0}
+  .gal-depo p{font-size:16.5px}
+}
 .lightbox{position:fixed;inset:0;z-index:80;background:rgba(10,20,15,.94);display:flex;align-items:center;justify-content:center;gap:12px;padding:calc(56px + env(safe-area-inset-top,0px)) max(12px, env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(12px, env(safe-area-inset-left,0px));animation:capaVeu .25s ease both}
 .lb-fig{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px;min-width:0;max-width:min(980px,100%)}
 .lb-fig img{max-width:100%;max-height:calc(100vh - 140px);border-radius:12px;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.4)}
@@ -1290,16 +1327,10 @@ nav.menu a{padding-inline:8px}
       <p class="lead">Histórias e fotos de clientes que contaram com a orientação do Guilherme para comprar, investir ou negociar um terreno.</p>
     </div>
   </section>
-  <section class="band bg-branco depo-bloco" hidden>
-    <div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Depoimentos</p><h2>O que dizem os clientes</h2></div>
-      <div class="depos" data-depo-lista="todos"></div>
-    </div>
-  </section>
   <section class="band bg-gelo">
     <div class="wrap">
-      <div class="gal-cab"><p class="eyebrow">Galeria de clientes</p></div>
-      <div class="galeria" id="galeria">
+      <div class="gal-cab"><p class="eyebrow">Fotos e histórias de clientes</p></div>
+      <div class="galeria mural" id="galeria">
         <button type="button" class="gal-item revela-foto destaque" data-gal="0" aria-label="Ampliar foto 1 de 19"><img src="assets/clientes/cliente-18.jpg" width="750" height="1000" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
         <button type="button" class="gal-item revela-foto" data-gal="1" aria-label="Ampliar foto 2 de 19"><img src="assets/clientes/cliente-15.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
         <button type="button" class="gal-item revela-foto" data-gal="2" aria-label="Ampliar foto 3 de 19"><img src="assets/clientes/cliente-16.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
@@ -1651,6 +1682,20 @@ nav.menu a{padding-inline:8px}
     el.innerHTML = DEPO.slice(0, n).map(cardDepo).join('');
   });
   document.querySelectorAll('.depo-bloco').forEach(function(b){ b.hidden = DEPO.length === 0; });
+  /* Mural da aba Depoimentos: encaixa os depoimentos entre as fotos.
+     As posições (depois da 2ª, 6ª, 8ª... foto) deixam grupos pares de fotos, o que fecha bem as 2 colunas do celular. */
+  (function(){
+    var gal = document.getElementById('galeria'); if (!gal) return;
+    var fotos = gal.querySelectorAll('.gal-item'), apos = [2, 6, 8, 12, 14, 18], tons = ['', 'tom-verde', 'tom-areia'];
+    DEPO.forEach(function(d, i){
+      var alvo = fotos[Math.min(apos[i] || fotos.length, fotos.length) - 1]; if (!alvo) return;
+      var el = document.createElement('article');
+      el.className = 'gal-depo revela-foto ' + tons[i % 3];
+      el.innerHTML = '<div class="gd-aspas" aria-hidden="true">“</div><p>' + d.texto + '</p>' +
+        '<div class="gd-quem"><div class="gd-av" aria-hidden="true">' + iniciais(d.nome) + '</div><div><b>' + d.nome + '</b>' + (d.tag ? '<span>' + d.tag + '</span>' : '') + '</div></div>';
+      alvo.insertAdjacentElement('afterend', el);
+    });
+  })();
 
   /* Navegação entre páginas */
   var VIEWS = ['inicio','sobre','empreendimentos','planta','incorporacao','simulador','depoimentos','duvidas','contato'];
