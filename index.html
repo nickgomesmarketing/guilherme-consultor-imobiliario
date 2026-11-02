@@ -697,16 +697,16 @@ footer.site .legal a:not(.credito-dev){color:inherit;text-decoration:underline}
 .ct-marca{display:flex;flex-direction:column;align-items:flex-start;gap:2px;flex:none;color:var(--texto-2);transition:color .2s}
 .ct-marca b{font-family:var(--display);font-size:22px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;line-height:1.1}
 .ct-marca small{font-size:12px;font-weight:600;color:var(--texto-2);opacity:.8}
-.ct-marca img{height:34px;width:auto;max-width:150px;object-fit:contain;filter:grayscale(1);opacity:.7;transition:filter .2s,opacity .2s}
+.ct-marca img{display:block;height:38px;width:auto;max-width:150px;object-fit:contain}
+.ct-marca.bloco img{height:54px;max-width:none;border-radius:8px}
 .ct-marca:hover{color:var(--verde)}
-.ct-marca:hover img{filter:none;opacity:1}
 .ct-lista.rolando{display:block;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .ct-trilho{display:flex;width:max-content;animation:ctRola 40s linear infinite}
 .ct-lista.rolando:hover .ct-trilho{animation-play-state:paused}
-.ct-grupo{display:flex;align-items:center;gap:56px;padding-right:56px}
+.ct-grupo{display:flex;align-items:center;gap:44px;padding-right:44px}
 @keyframes ctRola{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.ct-lista.rolando{-webkit-mask-image:none;mask-image:none}.ct-trilho{width:auto}.ct-grupo{flex-wrap:wrap;gap:14px 40px;padding:0}.ct-grupo[aria-hidden]{display:none}}
-@media (max-width:760px){.so-desk{display:none}.ct-faixa{padding-block:20px}.ct-faixa .wrap{gap:12px 28px}.ct-titulo{width:100%}.ct-marca b{font-size:19px}}
+@media (max-width:760px){.so-desk{display:none}.ct-faixa{padding-block:20px}.ct-faixa .wrap{gap:12px 28px}.ct-titulo{width:100%}.ct-marca b{font-size:19px}.ct-marca img{height:32px;max-width:120px}.ct-marca.bloco img{height:46px}.ct-grupo{gap:32px;padding-right:32px}}
 .lp-construtoras{font-size:13.5px;color:var(--texto-2);margin-top:-6px}
 .lp-construtoras b{color:var(--texto)}
 /* Empreendimentos: lazer em etiquetas */
@@ -1656,15 +1656,60 @@ nav.menu a{padding-inline:8px}
   document.querySelectorAll('[data-emp-lista]').forEach(function(el){ el.innerHTML = EMP.map(cardEmp).join(''); });
 
   /* Construtoras e incorporadoras com que o Guilherme trabalha.
-     Para incluir: {nome:'Nome', grupo:'Grupo X' (opcional), logo:'assets/construtoras/arquivo.svg' (opcional)}.
-     Sem logo, aparece o nome. Com 6 ou mais, a faixa do Início passa a rolar sozinha. */
-  var CONSTRUTORAS = ['Cavazani','Vivaz','Cyrela','Cury','MRV','Tenda','Plano&amp;Plano','Even','EZTEC','Tegra','Gafisa','Tecnisa',
-    'Helbor','Trisul','Lavvi','Lindenberg','You,inc','Kallas','Mitre','Setin','Yuny','Exto','Benx','Vivabenx','Living','MAC',
-    'AAM','Cambur','Netcorp','Diálogo','Tarjab','Kazzas','Casa Viva','Patriani','Conx','Engelux','Fit Casa','Riva',
-    'Vibra Residencial','Magik JC','Ampla','Vitta Residencial','Vinx','Econ','Novvo','EPH','Metrocasa'
-  ].map(function(n){ return {nome:n}; });
+     Para incluir: {nome:'Nome', logo:'arquivo' (PNG em assets/construtoras/, sem a extensão), bloco:1 se o logo tiver fundo colorido}.
+     Sem logo, aparece o nome. Com 6 ou mais, a faixa do Início passa a rolar sozinha.
+     Logos recortados da imagem enviada pelo Guilherme em 02/11/2026 (a AAM veio da imagem original, porque a versão nova trocou as letras). */
+  var CONSTRUTORAS = [
+    {nome:'Cavazani'},
+    {nome:'Vivaz', logo:'vivaz', bloco:1},
+    {nome:'Cyrela', logo:'cyrela'},
+    {nome:'Cury', logo:'cury'},
+    {nome:'MRV', logo:'mrv'},
+    {nome:'Tenda', logo:'tenda', bloco:1},
+    {nome:'Plano&amp;Plano', logo:'planoeplano'},
+    {nome:'Even', logo:'even'},
+    {nome:'EZTEC', logo:'eztec'},
+    {nome:'Tegra', logo:'tegra'},
+    {nome:'Gafisa', logo:'gafisa'},
+    {nome:'Tecnisa', logo:'tecnisa'},
+    {nome:'Helbor', logo:'helbor'},
+    {nome:'Trisul', logo:'trisul'},
+    {nome:'Lavvi', logo:'lavvi', bloco:1},
+    {nome:'Lindenberg', logo:'lindenberg'},
+    {nome:'You,inc', logo:'youinc'},
+    {nome:'Kallas', logo:'kallas'},
+    {nome:'Mitre', logo:'mitre', bloco:1},
+    {nome:'Setin', logo:'setin'},
+    {nome:'Yuny', logo:'yuny', bloco:1},
+    {nome:'Exto', logo:'exto'},
+    {nome:'Benx', logo:'benx'},
+    {nome:'Vivabenx', logo:'vivabenx'},
+    {nome:'Living', logo:'living', bloco:1},
+    {nome:'MAC', logo:'mac'},
+    {nome:'AAM', logo:'aam', bloco:1},
+    {nome:'Cambur', logo:'cambur', bloco:1},
+    {nome:'Netcorp', logo:'netcorp'},
+    {nome:'Diálogo', logo:'dialogo'},
+    {nome:'Tarjab', logo:'tarjab'},
+    {nome:'Kazzas', logo:'kazzas'},
+    {nome:'Casa Viva', logo:'casaviva'},
+    {nome:'Patriani', logo:'patriani'},
+    {nome:'Conx', logo:'conx', bloco:1},
+    {nome:'Engelux', logo:'engelux', bloco:1},
+    {nome:'Fit Casa', logo:'fitcasa', bloco:1},
+    {nome:'Riva', logo:'riva'},
+    {nome:'Vibra Residencial', logo:'vibra', bloco:1},
+    {nome:'Magik JC', logo:'magik'},
+    {nome:'Ampla', logo:'ampla'},
+    {nome:'Vitta Residencial', logo:'vitta', bloco:1},
+    {nome:'Vinx', logo:'vinx', bloco:1},
+    {nome:'Econ', logo:'econ'},
+    {nome:'Novvo', logo:'novvo', bloco:1},
+    {nome:'EPH', logo:'eph'},
+    {nome:'Metrocasa', logo:'metrocasa', bloco:1}
+  ];
   function marca(c){
-    return '<div class="ct-marca">' + (c.logo ? '<img src="' + c.logo + '" alt="' + c.nome + '" loading="lazy">' : '<b>' + c.nome + '</b>') +
+    return '<div class="ct-marca' + (c.bloco ? ' bloco' : '') + '">' + (c.logo ? '<img src="assets/construtoras/' + c.logo + '.png" alt="' + c.nome + '" loading="lazy">' : '<b>' + c.nome + '</b>') +
       (c.grupo ? '<small>' + c.grupo + '</small>' : '') + '</div>';
   }
   document.querySelectorAll('[data-construtoras]').forEach(function(el){
