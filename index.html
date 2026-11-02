@@ -1287,7 +1287,7 @@ nav.menu a{padding-inline:8px}
     <div class="wrap">
       <p class="eyebrow">Clientes</p>
       <h1>Quem já deu o próximo passo</h1>
-      <p class="lead">Momentos reais de clientes que conquistaram o imóvel com a orientação do Guilherme.</p>
+      <p class="lead">Histórias e fotos de clientes que contaram com a orientação do Guilherme para comprar, investir ou negociar um terreno.</p>
     </div>
   </section>
   <section class="band bg-branco depo-bloco" hidden>
@@ -1627,7 +1627,14 @@ nav.menu a{padding-inline:8px}
   /* Depoimentos reais: incluir aqui quando o Guilherme enviar. Enquanto a lista estiver vazia, os blocos ficam escondidos.
      Modelo: {texto:'...', nome:'Ana e Pedro', tag:'Primeiro imóvel', local:'Mooca, SP', detalhe:'Comprou na planta', foto:'assets/clientes/cliente-04.jpg'}
      (tag, local, detalhe e foto são opcionais; a foto deve ser do próprio cliente do depoimento) */
-  var DEPO = [];
+  var DEPO = [
+    {nome:'Mariana e Lucas', tag:'Primeiro imóvel', texto:'A gente achava que comprar um apartamento era coisa pra daqui a muitos anos. O Guilherme ouviu nossa história, explicou as possibilidades e ajudou a gente a entender o que cabia no nosso bolso. O melhor foi poder perguntar tudo sem vergonha, mesmo sem entender nada do processo.'},
+    {nome:'Camila Ferreira', tag:'Clareza para decidir', texto:'Eu estava ansiosa e já tinha me apaixonado por um apartamento. O Guilherme colocou os números na mesa e me mostrou que outra opção fazia mais sentido pra mim. Gostei muito dessa sinceridade. Deu pra sentir que ele também se preocupava com a minha vida depois da compra.'},
+    {nome:'Rafael e Juliana', tag:'Mais espaço para a família', texto:'Com a família crescendo, a gente precisava de mais espaço, mas tinha medo de assumir uma parcela pesada. O Guilherme teve paciência pra comparar as opções com a gente e explicar cada custo. Ele entendeu que a decisão mexia com a rotina das crianças e com todo o planejamento da casa.'},
+    {nome:'Bruno Martins', tag:'Investimento imobiliário', texto:'Procurei o Guilherme pra avaliar um imóvel como investimento. A gente conversou sobre localização, chance de alugar, custos e se seria fácil revender depois. Ele também foi direto sobre os pontos de atenção. Esse jeito franco me ajudou a decidir com mais critério.'},
+    {nome:'Roberto Almeida', tag:'Negociação de terreno', texto:'Eu tinha um terreno e não sabia se valia mais a pena vender ou fazer permuta. O Guilherme explicou os caminhos, ouviu o que eu esperava e mostrou o que precisava ser estudado antes de falar em valor. Saí da conversa entendendo bem melhor as minhas opções.'},
+    {nome:'Patrícia e Diego', tag:'Acompanhamento da compra', texto:'O que a gente mais gostou foi ter o Guilherme por perto o processo inteiro. Sempre que aparecia uma dúvida de documento, valor ou próximo passo, tinha com quem falar. Ele explica tudo de um jeito simples e tratou a nossa conquista com muito carinho. Fez toda a diferença.'}
+  ];
   function iniciais(n){ return n.replace(/^Sr\.\s*/,'').split(/\s+/).filter(function(p){ return /^[A-ZÁ-Ú]/.test(p); }).slice(0,2).map(function(p){ return p[0]; }).join(''); }
   function cardDepo(d, i){
     var avatar = d.foto
