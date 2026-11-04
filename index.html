@@ -847,11 +847,17 @@ footer.site .legal a:not(.credito-dev){color:inherit;text-decoration:underline}
 .gal-depo.tom-areia::before{background:rgba(30,69,53,.18)}
 .anima .gal-depo.revela-foto{opacity:0}
 .anima .gal-depo.revela-foto.visivel{animation:galEntra .8s cubic-bezier(.2,.8,.2,1) both}
+/* Celular: grade fixa de 2 colunas (as colunas soltas deixavam buracos, principalmente no Safari).
+   Todas as fotos no mesmo formato; cada depoimento ocupa a largura toda entre os pares de fotos. */
 @media (max-width:700px){
-  .galeria.mural{columns:2;column-gap:12px}
-  .mural>*{margin-bottom:12px}
-  .mural .gal-depo{column-span:all;margin:10px 4px 22px;width:auto}
-  .mural .gal-cta{min-height:0}
+  .galeria.mural{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-flow:row dense;gap:12px;columns:auto}
+  .mural>*{margin:0}
+  .mural .gal-item,.mural .gal-item.destaque,.mural .gal-item.largo,
+  .mural .gal-item:nth-of-type(5n+2),.mural .gal-item:nth-of-type(7n+4){aspect-ratio:3/4;height:auto}
+  .mural .gal-item.destaque{grid-column:1 / -1;grid-row:auto;aspect-ratio:4/5}
+  .mural .gal-item.largo{grid-column:1 / -1;aspect-ratio:4/3}
+  .mural .gal-depo{grid-column:1 / -1;margin:8px 4px 10px;width:auto}
+  .mural .gal-cta{aspect-ratio:3/4;min-height:0;justify-content:center}
   .gal-depo p{font-size:16.5px}
 }
 .lightbox{position:fixed;inset:0;z-index:80;background:rgba(10,20,15,.94);display:flex;align-items:center;justify-content:center;gap:12px;padding:calc(56px + env(safe-area-inset-top,0px)) max(12px, env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(12px, env(safe-area-inset-left,0px));animation:capaVeu .25s ease both}
