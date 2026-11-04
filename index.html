@@ -15,9 +15,13 @@
 <meta property="og:url" content="https://guilhermeazevedoimoveis.com.br/">
 <meta property="og:image" content="https://guilhermeazevedoimoveis.com.br/assets/hero-predio.jpg">
 <!-- Espaço para os códigos de anúncio (Meta Pixel / Google Ads / Google Analytics) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Fontes servidas pelo próprio site (licença OFL, arquivos em assets/fonts) */
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:200 800;font-display:swap;src:url(assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2) format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:400 900;font-display:swap;src:url(assets/fonts/playfair-display-latin-wght-normal.woff2) format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:400 900;font-display:swap;src:url(assets/fonts/playfair-display-latin-wght-italic.woff2) format('woff2')}
+</style>
 <style>
 html,body{margin:0}body{-webkit-text-size-adjust:100%}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px)}
 
@@ -924,7 +928,7 @@ nav.menu a{padding-inline:8px}
 <!-- ===================== INÍCIO ===================== -->
 <div class="view" id="v-inicio" data-view="inicio">
   <section class="hero on-dark">
-    <img class="hero-bg" src="assets/hero-predio.jpg" alt="Edifício residencial moderno com varandas iluminadas ao entardecer">
+    <img class="hero-bg" src="assets/hero-predio.webp" srcset="assets/hero-predio-700.webp 700w, assets/hero-predio.webp 1170w" sizes="(max-width:760px) 100vw, 50vw" width="1170" height="1600" fetchpriority="high" decoding="async" alt="Edifício residencial moderno com varandas iluminadas ao entardecer">
     <div class="wrap">
       <div class="hero-txt">
         <p class="eyebrow">Consultoria imobiliária · São Paulo e Grande SP</p>
@@ -988,7 +992,7 @@ nav.menu a{padding-inline:8px}
   <section class="band bg-branco">
     <div class="wrap trabalho">
       <figure class="foto-guilherme com-foto foto-home revela-foto">
-        <img class="foto-g" src="assets/guilherme-trabalho.jpg" alt="Guilherme Azevedo de camisa branca, segurando um tablet, em um escritório com vista para a cidade">
+        <img class="foto-g" src="assets/guilherme-trabalho.webp" alt="Guilherme Azevedo de camisa branca, segurando um tablet, em um escritório com vista para a cidade" loading="lazy" decoding="async">
         <figcaption><b>Guilherme Azevedo</b><span>Consultor imobiliário · CRECI 189037</span></figcaption>
       </figure>
       <div class="trabalho-txt">
@@ -1023,10 +1027,10 @@ nav.menu a{padding-inline:8px}
         <h2>Quem já deu o próximo passo</h2>
       </div>
       <div class="gal-faixa">
-        <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-18.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
-        <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-15.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
-        <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-04.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
-        <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-12.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
+        <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-18.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
+        <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-15.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
+        <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-04.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
+        <a class="gal-mini revela-foto" href="#depoimentos" data-ir="depoimentos"><img src="assets/clientes/cliente-12.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></a>
       </div>
       <div class="depos depo-bloco" data-depo-lista="2" hidden></div>
       <div class="sec-foot"><a class="btn btn-linha" style="color:var(--verde)" href="#depoimentos" data-ir="depoimentos">Ver galeria de clientes</a></div>
@@ -1035,7 +1039,7 @@ nav.menu a{padding-inline:8px}
 
   <section class="band bg-gelo">
     <div class="wrap ced-band">
-      <div class="ced-foto"><img src="assets/cedrinho.jpg" alt="Cedrinho, mascote do Guilherme Azevedo, segurando uma chave dourada em formato de casa" loading="lazy"></div>
+      <div class="ced-foto"><img src="assets/cedrinho.webp" alt="Cedrinho, mascote do Guilherme Azevedo, segurando uma chave dourada em formato de casa" loading="lazy"></div>
       <div class="ced-txt">
         <p class="eyebrow">Fale com o Cedrinho</p>
         <h2 class="ced-titulo">Não sabe por onde começar? O Cedrinho te ajuda.</h2>
@@ -1063,7 +1067,7 @@ nav.menu a{padding-inline:8px}
   <section class="band bg-gelo">
     <div class="wrap sobre-grid">
       <figure class="foto-guilherme com-foto revela-foto">
-        <img class="foto-g" src="assets/guilherme.jpg" alt="Guilherme Azevedo, consultor imobiliário, de blazer azul-marinho em um escritório">
+        <img class="foto-g" src="assets/guilherme.webp" alt="Guilherme Azevedo, consultor imobiliário, de blazer azul-marinho em um escritório" loading="lazy" decoding="async">
         <figcaption><b>Guilherme Azevedo</b><span>Consultor imobiliário · CRECI 189037</span></figcaption>
       </figure>
       <div class="texto-longo">
@@ -1105,7 +1109,7 @@ nav.menu a{padding-inline:8px}
   </section>
   <section class="band-sm bg-gelo proposito">
     <div class="wrap citacao">
-      <img src="assets/simbolo-dourado.svg" alt="">
+      <img src="assets/simbolo-dourado.svg" alt="" loading="lazy" decoding="async">
       <blockquote>Meu propósito é transformar conhecimento imobiliário em decisões bem orientadas, da primeira conquista à construção de um legado.<cite>Propósito</cite></blockquote>
     </div>
   </section>
@@ -1358,25 +1362,25 @@ nav.menu a{padding-inline:8px}
     <div class="wrap">
       <div class="gal-cab"><p class="eyebrow">Fotos e histórias de clientes</p></div>
       <div class="galeria mural" id="galeria">
-        <button type="button" class="gal-item revela-foto destaque" data-gal="0" aria-label="Ampliar foto 1 de 19"><img src="assets/clientes/cliente-18.jpg" width="750" height="1000" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="1" aria-label="Ampliar foto 2 de 19"><img src="assets/clientes/cliente-15.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="2" aria-label="Ampliar foto 3 de 19"><img src="assets/clientes/cliente-16.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="3" aria-label="Ampliar foto 4 de 19"><img src="assets/clientes/cliente-17.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="4" aria-label="Ampliar foto 5 de 19"><img src="assets/clientes/cliente-19.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="5" aria-label="Ampliar foto 6 de 19"><img src="assets/clientes/cliente-01.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="6" aria-label="Ampliar foto 7 de 19"><img src="assets/clientes/cliente-02.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto largo" data-gal="7" aria-label="Ampliar foto 8 de 19"><img src="assets/clientes/cliente-03.jpg" width="800" height="600" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="8" aria-label="Ampliar foto 9 de 19"><img src="assets/clientes/cliente-04.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="9" aria-label="Ampliar foto 10 de 19"><img src="assets/clientes/cliente-05.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="10" aria-label="Ampliar foto 11 de 19"><img src="assets/clientes/cliente-06.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="11" aria-label="Ampliar foto 12 de 19"><img src="assets/clientes/cliente-07.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="12" aria-label="Ampliar foto 13 de 19"><img src="assets/clientes/cliente-08.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="13" aria-label="Ampliar foto 14 de 19"><img src="assets/clientes/cliente-09.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="14" aria-label="Ampliar foto 15 de 19"><img src="assets/clientes/cliente-10.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="15" aria-label="Ampliar foto 16 de 19"><img src="assets/clientes/cliente-11.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="16" aria-label="Ampliar foto 17 de 19"><img src="assets/clientes/cliente-12.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="17" aria-label="Ampliar foto 18 de 19"><img src="assets/clientes/cliente-13.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
-        <button type="button" class="gal-item revela-foto" data-gal="18" aria-label="Ampliar foto 19 de 19"><img src="assets/clientes/cliente-14.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto destaque" data-gal="0" aria-label="Ampliar foto 1 de 19"><img src="assets/clientes/cliente-18.webp" width="750" height="1000" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="1" aria-label="Ampliar foto 2 de 19"><img src="assets/clientes/cliente-15.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="2" aria-label="Ampliar foto 3 de 19"><img src="assets/clientes/cliente-16.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="3" aria-label="Ampliar foto 4 de 19"><img src="assets/clientes/cliente-17.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="4" aria-label="Ampliar foto 5 de 19"><img src="assets/clientes/cliente-19.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="5" aria-label="Ampliar foto 6 de 19"><img src="assets/clientes/cliente-01.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="6" aria-label="Ampliar foto 7 de 19"><img src="assets/clientes/cliente-02.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto largo" data-gal="7" aria-label="Ampliar foto 8 de 19"><img src="assets/clientes/cliente-03.webp" width="800" height="600" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="8" aria-label="Ampliar foto 9 de 19"><img src="assets/clientes/cliente-04.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="9" aria-label="Ampliar foto 10 de 19"><img src="assets/clientes/cliente-05.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="10" aria-label="Ampliar foto 11 de 19"><img src="assets/clientes/cliente-06.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="11" aria-label="Ampliar foto 12 de 19"><img src="assets/clientes/cliente-07.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="12" aria-label="Ampliar foto 13 de 19"><img src="assets/clientes/cliente-08.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="13" aria-label="Ampliar foto 14 de 19"><img src="assets/clientes/cliente-09.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="14" aria-label="Ampliar foto 15 de 19"><img src="assets/clientes/cliente-10.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="15" aria-label="Ampliar foto 16 de 19"><img src="assets/clientes/cliente-11.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="16" aria-label="Ampliar foto 17 de 19"><img src="assets/clientes/cliente-12.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="17" aria-label="Ampliar foto 18 de 19"><img src="assets/clientes/cliente-13.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
+        <button type="button" class="gal-item revela-foto" data-gal="18" aria-label="Ampliar foto 19 de 19"><img src="assets/clientes/cliente-14.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></button>
         <div class="gal-cta revela-foto gal-item-cta"><p class="eyebrow">Próxima conquista</p><b>A próxima foto pode ser a sua.</b><p>Conte o seu momento e receba orientação para encontrar o imóvel certo.</p><a class="btn btn-wa" data-wa="geral" href="https://wa.me/5511950274532" target="_blank" rel="noopener">Falar com Guilherme</a></div>
       </div>
     </div>
@@ -1423,12 +1427,12 @@ nav.menu a{padding-inline:8px}
   <section class="lp-hero">
     <div class="wrap lp-grid">
       <figure class="lp-foto revela-foto">
-        <img src="assets/guilherme-contato.jpg" alt="Guilherme Azevedo, consultor imobiliário, de blazer bege em um escritório">
+        <img src="assets/guilherme-contato.webp" alt="Guilherme Azevedo, consultor imobiliário, de blazer bege em um escritório" loading="lazy" decoding="async">
         <figcaption><b>Guilherme Azevedo</b><span>Consultor imobiliário · CRECI 189037</span></figcaption>
       </figure>
 
       <div class="lp-conteudo">
-        <div class="lp-assina-mini"><img src="assets/guilherme-mini.jpg" alt=""><div><b>Guilherme Azevedo</b><span>Consultor imobiliário · CRECI 189037</span></div></div>
+        <div class="lp-assina-mini"><img src="assets/guilherme-mini.webp" alt="" loading="lazy" decoding="async"><div><b>Guilherme Azevedo</b><span>Consultor imobiliário · CRECI 189037</span></div></div>
         <p class="eyebrow">Atendimento gratuito · São Paulo e Grande SP</p>
         <h1 class="lp-titulo"><span class="so-normal">Vamos conversar sobre o seu próximo passo?</span><span class="so-lp">Descubra quais imóveis cabem no seu bolso em São Paulo</span></h1>
         <p class="lead lp-lead"><span class="so-normal">Comprar, investir ou negociar um terreno: conte o seu momento e receba uma orientação clara. Sem compromisso e sem pressa.</span><span class="so-lp">Receba uma análise do seu perfil com FGTS, entrada e parcelas. Sem compromisso e sem pressa.</span></p>
@@ -1441,7 +1445,7 @@ nav.menu a{padding-inline:8px}
 
         <div class="lp-prova">
           <div class="lp-prova-fotos" aria-hidden="true">
-            <img src="assets/clientes/cliente-18.jpg" alt="" loading="lazy"><img src="assets/clientes/cliente-15.jpg" alt="" loading="lazy"><img src="assets/clientes/cliente-04.jpg" alt="" loading="lazy"><img src="assets/clientes/cliente-12.jpg" alt="" loading="lazy">
+            <img src="assets/clientes/cliente-18.webp" alt="" loading="lazy"><img src="assets/clientes/cliente-15.webp" alt="" loading="lazy"><img src="assets/clientes/cliente-04.webp" alt="" loading="lazy"><img src="assets/clientes/cliente-12.webp" alt="" loading="lazy">
           </div>
           <p><b>Clientes reais que já compraram com o Guilherme</b><span>CRECI 189037 · <a href="https://www.crecisp.gov.br/" target="_blank" rel="noopener">consulte no site do CRECI-SP</a></span></p>
         </div>
@@ -1500,10 +1504,10 @@ nav.menu a{padding-inline:8px}
     <div class="wrap">
       <div class="sec-head"><p class="eyebrow">Clientes</p><h2>Quem já deu o próximo passo</h2></div>
       <div class="gal-faixa">
-        <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-18.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
-        <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-17.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
-        <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-10.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
-        <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-19.jpg" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
+        <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-18.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
+        <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-17.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
+        <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-10.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
+        <div class="gal-mini revela-foto"><img src="assets/clientes/cliente-19.webp" width="600" height="800" loading="lazy" alt="Clientes do Guilherme Azevedo comemorando a compra do imóvel"></div>
       </div>
     </div>
   </section>
@@ -1549,7 +1553,7 @@ nav.menu a{padding-inline:8px}
 <footer class="site on-dark">
   <div class="wrap">
     <div style="display:flex;flex-direction:column;gap:18px">
-      <img src="assets/logo-horizontal-branco.svg" alt="Guilherme Azevedo, Consultor Imobiliário">
+      <img src="assets/logo-horizontal-branco.svg" alt="Guilherme Azevedo, Consultor Imobiliário" loading="lazy" decoding="async">
       <p style="max-width:40ch">Seu próximo passo, uma decisão bem orientada.</p>
     </div>
     <div>
@@ -1586,12 +1590,12 @@ nav.menu a{padding-inline:8px}
   <p><b>Oi! Eu sou o Cedrinho.</b> Posso te ajudar a encontrar o imóvel certo?</p>
 </div>
 <button type="button" class="ced-lancador" id="ced-lancador" aria-expanded="false" aria-controls="ced-chat" data-abre-cedrinho>
-  <img src="assets/cedrinho-avatar.jpg" alt="">
+  <img src="assets/cedrinho-avatar.webp" alt="" loading="lazy" decoding="async">
   <span>Fale com o Cedrinho</span>
 </button>
 <section class="ced-chat" id="ced-chat" role="dialog" aria-label="Conversa com o Cedrinho" hidden>
   <header class="ced-topo">
-    <img src="assets/cedrinho-avatar.jpg" alt="">
+    <img src="assets/cedrinho-avatar.webp" alt="" loading="lazy" decoding="async">
     <div><b>Cedrinho</b><span><i class="ced-online"></i>Assistente do Guilherme Azevedo</span></div>
     <button type="button" class="ced-fechar" id="ced-fechar" aria-label="Fechar conversa">×</button>
   </header>
@@ -1624,11 +1628,11 @@ nav.menu a{padding-inline:8px}
   /* Empreendimentos: dados públicos das construtoras, conferidos em 02/11/2026 (apto.vc).
      Campos opcionais: endereco, estrutura, vagas, lazer (lista). Campo vazio não aparece no card. */
   var EMP = [
-    {nome:'Urbano First', construtora:'Cavazani', regiao:'Barreira Grande, Zona Leste', endereco:'Rua Amelia Vanso Magnoli', tipo:'1 e 2 dorms · 32 e 38 m²', vagas:'Sem vaga de garagem', entrega:'Previsão jan/2028', preco:'R$ 225 mil', selo:'Lançamento · MCMV', foto:'assets/emp-urbano-first.jpg',
+    {nome:'Urbano First', construtora:'Cavazani', regiao:'Barreira Grande, Zona Leste', endereco:'Rua Amelia Vanso Magnoli', tipo:'1 e 2 dorms · 32 e 38 m²', vagas:'Sem vaga de garagem', entrega:'Previsão jan/2028', preco:'R$ 225 mil', selo:'Lançamento · MCMV', foto:'assets/emp-urbano-first.webp',
       lazer:['Piscina adulto','Salão de festas','Brinquedoteca','Bicicletário']},
-    {nome:'Vivaz Origens da Mooca', construtora:'Vivaz (Cyrela)', regiao:'Mooca, Zona Leste', endereco:'Rua da Mooca', estrutura:'1 torre · 25 andares · 616 unidades', tipo:'1 e 2 dorms · 25 a 35 m²', vagas:'Sem vaga de garagem', entrega:'Previsão ago/2029', preco:'R$ 216,9 mil', selo:'Lançamento · MCMV', foto:'assets/emp-vivaz-origens.jpg',
+    {nome:'Vivaz Origens da Mooca', construtora:'Vivaz (Cyrela)', regiao:'Mooca, Zona Leste', endereco:'Rua da Mooca', estrutura:'1 torre · 25 andares · 616 unidades', tipo:'1 e 2 dorms · 25 a 35 m²', vagas:'Sem vaga de garagem', entrega:'Previsão ago/2029', preco:'R$ 216,9 mil', selo:'Lançamento · MCMV', foto:'assets/emp-vivaz-origens.webp',
       lazer:['Piscina','Academia','Spinning','Salão de festas','Brinquedoteca','Playground','Espaço teens','Espaço beleza','Lavanderia','Pet place','Redário']},
-    {nome:'Jardim das Rosas', construtora:'Em destaque', regiao:'Zona Leste, SP', tipo:null, entrega:null, preco:null, selo:'Destaque', foto:'assets/emp-jardim-das-rosas.jpg'}
+    {nome:'Jardim das Rosas', construtora:'Em destaque', regiao:'Zona Leste, SP', tipo:null, entrega:null, preco:null, selo:'Destaque', foto:'assets/emp-jardim-das-rosas.webp'}
   ];
   function linha(rotulo, v){ return v ? '<dt>' + rotulo + '</dt><dd>' + v + '</dd>' : ''; }
   function lazerEmp(l){
@@ -1642,7 +1646,7 @@ nav.menu a{padding-inline:8px}
   function cardEmp(e){
     var foto = e.foto
       ? '<img class="emp-img" src="' + e.foto + '" alt="Imagem do empreendimento ' + e.nome + '" loading="lazy">'
-      : '<img src="assets/simbolo-dourado.svg" alt=""><span class="emp-foto-txt">' + e.regiao + '</span>';
+      : '<img src="assets/simbolo-dourado.svg" alt="" loading="lazy" decoding="async"><span class="emp-foto-txt">' + e.regiao + '</span>';
     var local = e.endereco ? e.endereco + ' · ' + e.regiao : e.regiao;
     return '<article class="emp">' +
       '<div class="emp-foto"><span class="emp-status">' + e.selo + '</span>' + foto + (e.ilustrativa ? '<span class="emp-ilustra">Imagem ilustrativa</span>' : '') + '</div>' +
@@ -1709,7 +1713,7 @@ nav.menu a{padding-inline:8px}
     {nome:'Metrocasa', logo:'metrocasa', bloco:1}
   ];
   function marca(c){
-    return '<div class="ct-marca' + (c.bloco ? ' bloco' : '') + '">' + (c.logo ? '<img src="assets/construtoras/' + c.logo + '.png" alt="' + c.nome + '" loading="lazy">' : '<b>' + c.nome + '</b>') +
+    return '<div class="ct-marca' + (c.bloco ? ' bloco' : '') + '">' + (c.logo ? '<img src="assets/construtoras/' + c.logo + '.webp" alt="' + c.nome + '" loading="lazy">' : '<b>' + c.nome + '</b>') +
       (c.grupo ? '<small>' + c.grupo + '</small>' : '') + '</div>';
   }
   document.querySelectorAll('[data-construtoras]').forEach(function(el){
@@ -1756,7 +1760,7 @@ nav.menu a{padding-inline:8px}
   })();
 
   /* Depoimentos reais: incluir aqui quando o Guilherme enviar. Enquanto a lista estiver vazia, os blocos ficam escondidos.
-     Modelo: {texto:'...', nome:'Ana e Pedro', tag:'Primeiro imóvel', local:'Mooca, SP', detalhe:'Comprou na planta', foto:'assets/clientes/cliente-04.jpg'}
+     Modelo: {texto:'...', nome:'Ana e Pedro', tag:'Primeiro imóvel', local:'Mooca, SP', detalhe:'Comprou na planta', foto:'assets/clientes/cliente-04.webp'}
      (tag, local, detalhe e foto são opcionais; a foto deve ser do próprio cliente do depoimento) */
   var DEPO = [
     {nome:'Mariana e Lucas', tag:'Primeiro imóvel', texto:'A gente achava que comprar um apartamento era coisa pra daqui a muitos anos. O Guilherme ouviu nossa história, explicou as possibilidades e ajudou a gente a entender o que cabia no nosso bolso. O melhor foi poder perguntar tudo sem vergonha, mesmo sem entender nada do processo.'},
