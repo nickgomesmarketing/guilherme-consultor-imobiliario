@@ -194,6 +194,11 @@ nav.menu a[aria-current="page"]{color:var(--verde);box-shadow:inset 0 -2px 0 var
 .emp:nth-child(3n+1) .emp-foto{background:var(--azul)}
 .emp:nth-child(3n+2) .emp-foto{background:var(--verde)}
 .emp:nth-child(3n+3) .emp-foto{background:var(--preto)}
+/* Card em destaque (breve lançamento) */
+.emp.emp-destaque{position:relative;border:2px solid var(--dourado);box-shadow:0 18px 44px rgba(184,149,90,.28)}
+.emp-destaque .emp-status{background:var(--dourado);color:var(--preto)}
+.emp-faixa{position:absolute;top:14px;right:14px;z-index:2;background:var(--verde);color:var(--dourado-claro);font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:999px;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.emp-destaque .emp-corpo dl dd{min-width:0}
 .emp-status{position:absolute;top:14px;left:14px;background:var(--dourado-claro);color:var(--preto);font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:none;padding:5px 11px;border-radius:999px}
 .emp-corpo{padding:22px 24px 24px;display:flex;flex-direction:column;gap:12px;flex:1}
 .emp-corpo h3{font-family:var(--display);font-size:20px;color:var(--verde);font-weight:700}
@@ -1636,6 +1641,10 @@ nav.menu a{padding-inline:8px}
      Vivaz Origens da Mooca: apto.vc, conferido em 02/11/2026.
      Campos opcionais: endereco, estrutura, perto, condicoes, vagas, lazer (lista), ilustrativa. Campo vazio não aparece no card. */
   var EMP = [
+    /* Novo Mundo Guilherme Giorgi: book oficial da Cury enviado em 05/11/2026. Vendas só após o registro da incorporação (Lei 4.591/64). */
+    {nome:'Novo Mundo Guilherme Giorgi', construtora:'Cury', regiao:'Zona Leste, SP', endereco:'Av. Guilherme Giorgi', tipo:'1 e 2 dorms com opção de terraço, suíte e vaga · 27,89 a 51,60&nbsp;m²', estrutura:'4 torres · 24 andares + rooftop · 1.248 unidades', perto:'Futura Estação Santa Isabel a 6&nbsp;min e Estação Carrão a 10&nbsp;min', condicoes:'Unidades HIS-1 (até R$&nbsp;276,1&nbsp;mil) e HIS-2 (até R$&nbsp;383,6&nbsp;mil)', entrega:'Breve lançamento', preco:null, selo:'Breve lançamento', destaque:true, foto:'assets/emp-novo-mundo.webp', ilustrativa:true,
+      chamada:'Quero ser avisado do lançamento', msg:'Olá, Guilherme! Quero receber as informações do lançamento do Novo Mundo Guilherme Giorgi.',
+      lazer:['Rooftop','Piscina adulto','Piscina infantil','Beach tennis','Coworking','Fitness','Salão de festas','Sport bar','Gourmet','Churrasqueiras','Brinquedoteca','Sala de games','Espaço beleza','Sala de descanso e sauna','Pet place','Pet care','Playground','Bicicletário','Lavanderia','Mercadinho','Redário','Praça yoga']},
     {nome:'Urbano First', construtora:'Cavazani', regiao:'Barreira Grande (Aricanduva), Zona Leste', endereco:'Rua Amélia Vanso Magnoli, 303', tipo:'1 e 2 dorms com varanda · 32 a 38&nbsp;m²', estrutura:'2 torres · 9 andares · 250 unidades', perto:'Estação Vila União e Shopping Aricanduva a 8&nbsp;min', condicoes:'Use o FGTS · Escritura e ITBI gratuitos', entrega:'Previsão jan/2028', preco:'R$ 225 mil', selo:'Lançamento · MCMV', foto:'assets/emp-urbano-first.webp', ilustrativa:true,
       lazer:['Piscina adulto','Piscina infantil','Salão de festas','Salão gourmet','Brinquedoteca','Playground','Salão de jogos','Pet place','Gazebo central','2 bicicletários']},
     {nome:'Vivaz Origens da Mooca', construtora:'Vivaz (Cyrela)', regiao:'Mooca, Zona Leste', endereco:'Rua da Mooca', estrutura:'1 torre · 25 andares · 616 unidades', tipo:'1 e 2 dorms · 25 a 35 m²', vagas:'Sem vaga de garagem', entrega:'Previsão ago/2029', preco:'R$ 216,9 mil', selo:'Lançamento · MCMV', foto:'assets/emp-vivaz-origens.webp',
@@ -1655,13 +1664,13 @@ nav.menu a{padding-inline:8px}
       ? '<img class="emp-img" src="' + e.foto + '" alt="Imagem do empreendimento ' + e.nome + '" loading="lazy">'
       : '<img src="assets/simbolo-dourado.svg" alt="" loading="lazy" decoding="async"><span class="emp-foto-txt">' + e.regiao + '</span>';
     var local = e.endereco ? e.endereco + ' · ' + e.regiao : e.regiao;
-    return '<article class="emp">' +
+    return '<article class="emp' + (e.destaque ? ' emp-destaque' : '') + '">' + (e.destaque ? '<span class="emp-faixa">Em breve</span>' : '') +
       '<div class="emp-foto"><span class="emp-status">' + e.selo + '</span>' + foto + (e.ilustrativa ? '<span class="emp-ilustra">Imagem ilustrativa</span>' : '') + '</div>' +
       '<div class="emp-corpo"><span class="emp-construtora">' + e.construtora + '</span><h3>' + e.nome + '</h3>' +
-      (e.tipo ? '<dl>' + linha('Local', local) + linha('Plantas', e.tipo) + linha('Estrutura', e.estrutura) + linha('Perto de', e.perto) + linha('Condições', e.condicoes) + linha('Vagas', e.vagas) + linha('Entrega', e.entrega) +
-      '<dt>A partir de</dt>' + (e.preco ? '<dd class="preco">' + e.preco + '</dd>' : '<dd class="pend">consulte</dd>') + '</dl>' + lazerEmp(e.lazer)
+      (e.tipo ? '<dl>' + linha('Local', local) + linha('Plantas', e.tipo) + linha('Estrutura', e.estrutura) + linha('Perto de', e.perto) + linha('Condições', e.condicoes) + linha('Vagas', e.vagas) + linha(e.destaque ? 'Status' : 'Entrega', e.entrega) +
+      (e.destaque && !e.preco ? '' : '<dt>A partir de</dt>' + (e.preco ? '<dd class="preco">' + e.preco + '</dd>' : '<dd class="pend">consulte</dd>')) + '</dl>' + lazerEmp(e.lazer)
       : '<dl><dt>Local</dt><dd>' + e.regiao + '</dd></dl><p class="emp-info">Fotos, plantas e condições atualizadas direto com o Guilherme.</p>') +
-      '<a class="btn btn-wa" target="_blank" rel="noopener" href="' + wa('Olá, Guilherme! Quero conhecer o ' + e.nome + '.') + '">Quero conhecer este imóvel</a>' +
+      '<a class="btn btn-wa" target="_blank" rel="noopener" href="' + wa(e.msg || ('Olá, Guilherme! Quero conhecer o ' + e.nome + '.')) + '">' + (e.chamada || 'Quero conhecer este imóvel') + '</a>' +
       '</div></article>';
   }
   document.querySelectorAll('[data-emp-lista]').forEach(function(el){ el.innerHTML = EMP.map(cardEmp).join(''); });
