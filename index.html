@@ -1631,11 +1631,13 @@ nav.menu a{padding-inline:8px}
   var ICONE_WA = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19l1.4-4.2A8 8 0 1 1 9 18.6L4 19z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>';
   function iconesWa(){ document.querySelectorAll('.btn-wa').forEach(function(b){ if (!b.querySelector('svg')) b.insertAdjacentHTML('afterbegin', ICONE_WA); }); }
 
-  /* Empreendimentos: dados públicos das construtoras, conferidos em 02/11/2026 (apto.vc).
-     Campos opcionais: endereco, estrutura, vagas, lazer (lista). Campo vazio não aparece no card. */
+  /* Empreendimentos: dados públicos das construtoras.
+     Urbano First: book oficial da Cavazani (impresso em jun/2026), enviado em 05/11/2026; entrega e preço de apto.vc (02/11/2026).
+     Vivaz Origens da Mooca: apto.vc, conferido em 02/11/2026.
+     Campos opcionais: endereco, estrutura, perto, condicoes, vagas, lazer (lista), ilustrativa. Campo vazio não aparece no card. */
   var EMP = [
-    {nome:'Urbano First', construtora:'Cavazani', regiao:'Barreira Grande, Zona Leste', endereco:'Rua Amelia Vanso Magnoli', tipo:'1 e 2 dorms · 32 e 38 m²', vagas:'Sem vaga de garagem', entrega:'Previsão jan/2028', preco:'R$ 225 mil', selo:'Lançamento · MCMV', foto:'assets/emp-urbano-first.webp',
-      lazer:['Piscina adulto','Salão de festas','Brinquedoteca','Bicicletário']},
+    {nome:'Urbano First', construtora:'Cavazani', regiao:'Barreira Grande (Aricanduva), Zona Leste', endereco:'Rua Amélia Vanso Magnoli, 303', tipo:'1 e 2 dorms com varanda · 32 a 38&nbsp;m²', estrutura:'2 torres · 9 andares · 250 unidades', perto:'Estação Vila União e Shopping Aricanduva a 8&nbsp;min', condicoes:'Use o FGTS · Escritura e ITBI gratuitos', entrega:'Previsão jan/2028', preco:'R$ 225 mil', selo:'Lançamento · MCMV', foto:'assets/emp-urbano-first.webp', ilustrativa:true,
+      lazer:['Piscina adulto','Piscina infantil','Salão de festas','Salão gourmet','Brinquedoteca','Playground','Salão de jogos','Pet place','Gazebo central','2 bicicletários']},
     {nome:'Vivaz Origens da Mooca', construtora:'Vivaz (Cyrela)', regiao:'Mooca, Zona Leste', endereco:'Rua da Mooca', estrutura:'1 torre · 25 andares · 616 unidades', tipo:'1 e 2 dorms · 25 a 35 m²', vagas:'Sem vaga de garagem', entrega:'Previsão ago/2029', preco:'R$ 216,9 mil', selo:'Lançamento · MCMV', foto:'assets/emp-vivaz-origens.webp',
       lazer:['Piscina','Academia','Spinning','Salão de festas','Brinquedoteca','Playground','Espaço teens','Espaço beleza','Lavanderia','Pet place','Redário']},
     {nome:'Jardim das Rosas', construtora:'Em destaque', regiao:'Zona Leste, SP', tipo:null, entrega:null, preco:null, selo:'Destaque', foto:'assets/emp-jardim-das-rosas.webp'}
@@ -1657,7 +1659,7 @@ nav.menu a{padding-inline:8px}
     return '<article class="emp">' +
       '<div class="emp-foto"><span class="emp-status">' + e.selo + '</span>' + foto + (e.ilustrativa ? '<span class="emp-ilustra">Imagem ilustrativa</span>' : '') + '</div>' +
       '<div class="emp-corpo"><span class="emp-construtora">' + e.construtora + '</span><h3>' + e.nome + '</h3>' +
-      (e.tipo ? '<dl>' + linha('Local', local) + linha('Plantas', e.tipo) + linha('Estrutura', e.estrutura) + linha('Vagas', e.vagas) + linha('Entrega', e.entrega) +
+      (e.tipo ? '<dl>' + linha('Local', local) + linha('Plantas', e.tipo) + linha('Estrutura', e.estrutura) + linha('Perto de', e.perto) + linha('Condições', e.condicoes) + linha('Vagas', e.vagas) + linha('Entrega', e.entrega) +
       '<dt>A partir de</dt>' + (e.preco ? '<dd class="preco">' + e.preco + '</dd>' : '<dd class="pend">consulte</dd>') + '</dl>' + lazerEmp(e.lazer)
       : '<dl><dt>Local</dt><dd>' + e.regiao + '</dd></dl><p class="emp-info">Fotos, plantas e condições atualizadas direto com o Guilherme.</p>') +
       '<a class="btn btn-wa" target="_blank" rel="noopener" href="' + wa('Olá, Guilherme! Quero conhecer o ' + e.nome + '.') + '">Quero conhecer este imóvel</a>' +
