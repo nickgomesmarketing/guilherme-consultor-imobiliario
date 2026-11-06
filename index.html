@@ -126,7 +126,6 @@ nav.menu a[aria-current="page"]{color:var(--verde);box-shadow:inset 0 -2px 0 var
 .hero-ctas .btn-linha{color:var(--branco)}
 .hero-tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:10px 0 0;padding:0}
 .hero-tags li{font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:var(--sobre-escuro)}
-.hero-credito{position:absolute;z-index:2;right:max(16px, env(safe-area-inset-right, 0px));top:12px;font-size:11.5px;color:rgba(255,255,255,.65)}
 @media (max-width:760px){
   .hero{min-height:600px;align-items:flex-end}
   .hero-bg{object-position:66% 40%}
@@ -146,7 +145,6 @@ nav.menu a[aria-current="page"]{color:var(--verde);box-shadow:inset 0 -2px 0 var
 .hero-txt>:nth-child(3){animation-delay:1s}
 .hero-txt>:nth-child(4){animation-delay:1.15s}
 .hero-txt>:nth-child(5){animation-delay:1.3s}
-.hero-credito{animation:capaVeu 1s ease 1.6s both}
 
 /* Jornadas */
 .jornadas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
@@ -227,8 +225,6 @@ nav.menu a[aria-current="page"]{color:var(--verde);box-shadow:inset 0 -2px 0 var
 .depo .avatar{width:48px;height:48px;border-radius:50%;background:var(--verde);color:var(--dourado-claro);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex:none}
 .depo .avatar.av-azul{background:var(--azul)}
 .depo-topo{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.depo-exemplo{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--texto-2);border:1px dashed var(--texto-2);border-radius:6px;padding:2px 8px}
-.aviso-exemplo{margin-top:18px;font-size:13px;color:var(--texto-2);font-style:italic}
 .depo .quem b{display:block;font-size:15px;color:var(--azul)}
 .depo .quem span{font-size:13px;color:var(--texto-2)}
 .depo-tag{font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--gelo);border:1px solid var(--linha);color:var(--ouro-texto)}
@@ -752,7 +748,6 @@ footer.site .legal a:not(.credito-dev){color:inherit;text-decoration:underline}
 .hero{background:var(--verde-escuro)}
 .hero-bg{left:auto;right:0;width:50%;object-position:55% 40%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 26%);mask-image:linear-gradient(90deg,transparent 0,#000 26%);transform-origin:60% 30%}
 .hero::before{background:linear-gradient(90deg,rgba(22,52,40,1) 0%,rgba(22,52,40,.92) 44%,rgba(22,52,40,.25) 56%,rgba(22,52,40,0) 64%),linear-gradient(0deg,rgba(22,52,40,.55) 0%,rgba(22,52,40,0) 22%)}
-.hero-credito{color:rgba(255,255,255,.75)}
 @media (max-width:760px){
   .hero-bg{width:100%;object-position:62% 18%;-webkit-mask-image:none;mask-image:none}
   .hero::before{background:linear-gradient(180deg,rgba(22,52,40,.15) 0%,rgba(22,52,40,.7) 42%,rgba(22,52,40,.97) 100%)}
@@ -764,7 +759,6 @@ footer.site .legal a:not(.credito-dev){color:inherit;text-decoration:underline}
 .depos .depo:nth-child(even) .quem b{color:var(--branco)}
 .depos .depo:nth-child(even) .quem span{color:var(--sobre-verde)}
 .depos .depo:nth-child(even) .depo-tag{background:rgba(255,255,255,.08);border-color:rgba(233,217,180,.35);color:var(--dourado-claro)}
-.depos .depo:nth-child(even) .depo-exemplo{color:var(--sobre-verde);border-color:rgba(221,231,225,.5)}
 .depos .depo:nth-child(even) .aspas{color:var(--dourado)}
 .depos .depo:nth-child(even) .avatar{background:rgba(255,255,255,.08);color:var(--dourado-claro);border-color:var(--dourado)}
 }
@@ -774,7 +768,6 @@ footer.site .legal a:not(.credito-dev){color:inherit;text-decoration:underline}
 .depos .depo:nth-child(4n+2) .quem b,.depos .depo:nth-child(4n+3) .quem b{color:var(--branco)}
 .depos .depo:nth-child(4n+2) .quem span,.depos .depo:nth-child(4n+3) .quem span{color:var(--sobre-verde)}
 .depos .depo:nth-child(4n+2) .depo-tag,.depos .depo:nth-child(4n+3) .depo-tag{background:rgba(255,255,255,.08);border-color:rgba(233,217,180,.35);color:var(--dourado-claro)}
-.depos .depo:nth-child(4n+2) .depo-exemplo,.depos .depo:nth-child(4n+3) .depo-exemplo{color:var(--sobre-verde);border-color:rgba(221,231,225,.5)}
 .depos .depo:nth-child(4n+2) .aspas,.depos .depo:nth-child(4n+3) .aspas{color:var(--dourado)}
 .depos .depo:nth-child(4n+2) .avatar,.depos .depo:nth-child(4n+3) .avatar{background:rgba(255,255,255,.08);color:var(--dourado-claro);border-color:var(--dourado)}
 }
@@ -887,7 +880,6 @@ a.gal-mini:hover img{transform:scale(1.04)}
 .emp-foto-txt{color:var(--verde);font-weight:700;letter-spacing:.08em}
 .emp-info{font-size:15px;color:var(--texto-2)}
 .emp-foto:not(:has(.emp-img)){background:var(--verde-tinta)!important}
-.emp-ilustra{position:absolute;right:10px;bottom:10px;z-index:1;font-size:11px;font-weight:600;letter-spacing:.02em;text-transform:none;color:#fff;background:rgba(22,52,40,.65);padding:3px 9px;border-radius:999px}
 /* ===== Incorporação ===== */
 .inc-destaque{background:var(--branco);border:1px solid var(--linha);border-top:3px solid var(--dourado);border-radius:var(--raio);padding:28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 14px 34px rgba(20,44,59,.06)}
 .inc-destaque b{font-size:19px;color:var(--preto)}
@@ -954,7 +946,6 @@ nav.menu a{padding-inline:8px}
         </div>
       </div>
     </div>
-    <span class="hero-credito">Imagem ilustrativa</span>
   </section>
 
   <section class="ct-faixa" aria-label="Construtoras e incorporadoras">
@@ -1138,7 +1129,7 @@ nav.menu a{padding-inline:8px}
   <section class="band bg-gelo">
     <div class="wrap">
       <div class="cards-emp" data-emp-lista="todos"></div>
-      <p class="aviso">Informações de referência divulgadas pelas construtoras. Valores, plantas, prazos e condições sujeitos a alteração. Imagens ilustrativas. CRECI 189037.</p>
+      <p class="aviso">Informações de referência divulgadas pelas construtoras. Valores, plantas, prazos e condições sujeitos a alteração. CRECI 189037.</p>
     </div>
   </section>
 </div>
@@ -1639,13 +1630,13 @@ nav.menu a{padding-inline:8px}
   /* Empreendimentos: dados públicos das construtoras.
      Urbano First: book oficial da Cavazani (impresso em jun/2026), enviado em 05/11/2026; entrega e preço de apto.vc (02/11/2026).
      Vivaz Origens da Mooca: apto.vc, conferido em 02/11/2026.
-     Campos opcionais: endereco, estrutura, perto, condicoes, vagas, lazer (lista), ilustrativa. Campo vazio não aparece no card. */
+     Campos opcionais: endereco, estrutura, perto, condicoes, vagas, lazer (lista). Campo vazio não aparece no card. */
   var EMP = [
     /* Novo Mundo Guilherme Giorgi: book oficial da Cury enviado em 05/11/2026. Vendas só após o registro da incorporação (Lei 4.591/64). */
-    {nome:'Novo Mundo Guilherme Giorgi', construtora:'Cury', regiao:'Zona Leste, SP', endereco:'Av. Guilherme Giorgi', tipo:'1 e 2 dorms com opção de terraço, suíte e vaga · 27,89 a 51,60&nbsp;m²', estrutura:'4 torres · 24 andares + rooftop · 1.248 unidades', perto:'Futura Estação Santa Isabel a 6&nbsp;min e Estação Carrão a 10&nbsp;min', condicoes:'Unidades HIS-1 (até R$&nbsp;276,1&nbsp;mil) e HIS-2 (até R$&nbsp;383,6&nbsp;mil)', entrega:'Breve lançamento', preco:null, selo:'Breve lançamento', destaque:true, foto:'assets/emp-novo-mundo.webp', ilustrativa:true,
+    {nome:'Novo Mundo Guilherme Giorgi', construtora:'Cury', regiao:'Zona Leste, SP', endereco:'Av. Guilherme Giorgi', tipo:'1 e 2 dorms com opção de terraço, suíte e vaga · 27,89 a 51,60&nbsp;m²', estrutura:'4 torres · 24 andares + rooftop · 1.248 unidades', perto:'Futura Estação Santa Isabel a 6&nbsp;min e Estação Carrão a 10&nbsp;min', condicoes:'Unidades HIS-1 (até R$&nbsp;276,1&nbsp;mil) e HIS-2 (até R$&nbsp;383,6&nbsp;mil)', entrega:'Breve lançamento', preco:null, selo:'Breve lançamento', destaque:true, foto:'assets/emp-novo-mundo.webp',
       chamada:'Quero ser avisado do lançamento', msg:'Olá, Guilherme! Quero receber as informações do lançamento do Novo Mundo Guilherme Giorgi.',
       lazer:['Rooftop','Piscina adulto','Piscina infantil','Beach tennis','Coworking','Fitness','Salão de festas','Sport bar','Gourmet','Churrasqueiras','Brinquedoteca','Sala de games','Espaço beleza','Sala de descanso e sauna','Pet place','Pet care','Playground','Bicicletário','Lavanderia','Mercadinho','Redário','Praça yoga']},
-    {nome:'Urbano First', construtora:'Cavazani', regiao:'Barreira Grande (Aricanduva), Zona Leste', endereco:'Rua Amélia Vanso Magnoli, 303', tipo:'1 e 2 dorms com varanda · 32 a 38&nbsp;m²', estrutura:'2 torres · 9 andares · 250 unidades', perto:'Estação Vila União e Shopping Aricanduva a 8&nbsp;min', condicoes:'Use o FGTS · Escritura e ITBI gratuitos', entrega:'Previsão jan/2028', preco:'R$ 225 mil', selo:'Lançamento · MCMV', foto:'assets/emp-urbano-first.webp', ilustrativa:true,
+    {nome:'Urbano First', construtora:'Cavazani', regiao:'Barreira Grande (Aricanduva), Zona Leste', endereco:'Rua Amélia Vanso Magnoli, 303', tipo:'1 e 2 dorms com varanda · 32 a 38&nbsp;m²', estrutura:'2 torres · 9 andares · 250 unidades', perto:'Estação Vila União e Shopping Aricanduva a 8&nbsp;min', condicoes:'Use o FGTS · Escritura e ITBI gratuitos', entrega:'Previsão jan/2028', preco:'R$ 225 mil', selo:'Lançamento · MCMV', foto:'assets/emp-urbano-first.webp',
       lazer:['Piscina adulto','Piscina infantil','Salão de festas','Salão gourmet','Brinquedoteca','Playground','Salão de jogos','Pet place','Gazebo central','2 bicicletários']},
     {nome:'Vivaz Origens da Mooca', construtora:'Vivaz (Cyrela)', regiao:'Mooca, Zona Leste', endereco:'Rua da Mooca', estrutura:'1 torre · 25 andares · 616 unidades', tipo:'1 e 2 dorms · 25 a 35 m²', vagas:'Sem vaga de garagem', entrega:'Previsão ago/2029', preco:'R$ 216,9 mil', selo:'Lançamento · MCMV', foto:'assets/emp-vivaz-origens.webp',
       lazer:['Piscina','Academia','Spinning','Salão de festas','Brinquedoteca','Playground','Espaço teens','Espaço beleza','Lavanderia','Pet place','Redário']}
@@ -1665,7 +1656,7 @@ nav.menu a{padding-inline:8px}
       : '<img src="assets/simbolo-dourado.svg" alt="" loading="lazy" decoding="async"><span class="emp-foto-txt">' + e.regiao + '</span>';
     var local = e.endereco ? e.endereco + ' · ' + e.regiao : e.regiao;
     return '<article class="emp' + (e.destaque ? ' emp-destaque' : '') + '">' + (e.destaque ? '<span class="emp-faixa">Em breve</span>' : '') +
-      '<div class="emp-foto"><span class="emp-status">' + e.selo + '</span>' + foto + (e.ilustrativa ? '<span class="emp-ilustra">Imagem ilustrativa</span>' : '') + '</div>' +
+      '<div class="emp-foto"><span class="emp-status">' + e.selo + '</span>' + foto + '</div>' +
       '<div class="emp-corpo"><span class="emp-construtora">' + e.construtora + '</span><h3>' + e.nome + '</h3>' +
       (e.tipo ? '<dl>' + linha('Local', local) + linha('Plantas', e.tipo) + linha('Estrutura', e.estrutura) + linha('Perto de', e.perto) + linha('Condições', e.condicoes) + linha('Vagas', e.vagas) + linha(e.destaque ? 'Status' : 'Entrega', e.entrega) +
       (e.destaque && !e.preco ? '' : '<dt>A partir de</dt>' + (e.preco ? '<dd class="preco">' + e.preco + '</dd>' : '<dd class="pend">consulte</dd>')) + '</dl>' + lazerEmp(e.lazer)
@@ -1775,9 +1766,7 @@ nav.menu a{padding-inline:8px}
     window.__revelaFotos();
   })();
 
-  /* Depoimentos reais: incluir aqui quando o Guilherme enviar. Enquanto a lista estiver vazia, os blocos ficam escondidos.
-     Modelo: {texto:'...', nome:'Ana e Pedro', tag:'Primeiro imóvel', local:'Mooca, SP', detalhe:'Comprou na planta', foto:'assets/clientes/cliente-04.webp'}
-     (tag, local, detalhe e foto são opcionais; a foto deve ser do próprio cliente do depoimento) */
+  /* Depoimentos de clientes. Campos: texto, nome, tag, local, detalhe e foto (opcionais). */
   var DEPO = [
     {nome:'Mariana e Lucas', tag:'Primeiro imóvel', texto:'A gente achava que comprar um apartamento era coisa pra daqui a muitos anos. O Guilherme ouviu nossa história, explicou as possibilidades e ajudou a gente a entender o que cabia no nosso bolso. O melhor foi poder perguntar tudo sem vergonha, mesmo sem entender nada do processo.'},
     {nome:'Camila Ferreira', tag:'Clareza para decidir', texto:'Eu estava ansiosa e já tinha me apaixonado por um apartamento. O Guilherme colocou os números na mesa e me mostrou que outra opção fazia mais sentido pra mim. Gostei muito dessa sinceridade. Deu pra sentir que ele também se preocupava com a minha vida depois da compra.'},
