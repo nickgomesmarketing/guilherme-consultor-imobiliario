@@ -1,3 +1,15 @@
+# Headers de segurança
+# HSTS (só HTTPS), nosniff, bloqueio de clickjacking, referrer enxuto e sem câmera/microfone/localização.
+# CSP mínima de propósito, para não quebrar fontes, WhatsApp ou pixels.
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header always set Content-Security-Policy "frame-ancestors 'self'; upgrade-insecure-requests"
+</IfModule>
+
 # Desempenho do site (Hostinger / LiteSpeed)
 # Cada bloco só é aplicado se o módulo existir no servidor, então este arquivo não derruba o site.
 
