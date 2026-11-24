@@ -890,6 +890,25 @@ a.gal-mini:hover img{transform:scale(1.04)}
 #v-incorporacao .frentes{margin-top:4px}
 nav.menu a{padding-inline:8px}
 [hidden],.view[hidden]{display:none!important}
+/* Política de privacidade */
+.politica{max-width:760px;display:flex;flex-direction:column;gap:14px;color:var(--texto);font-size:16px;line-height:1.7}
+.politica h2{font-family:var(--display);font-size:clamp(20px,2.2vw,24px);font-weight:700;color:var(--verde);margin-top:22px;line-height:1.3}
+.politica h2:first-child{margin-top:0}
+.politica ul{padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.politica a{color:var(--verde);font-weight:700}
+.politica .atualizada{font-size:14px;color:var(--texto-2)}
+/* Aviso de cookies */
+.cookies{position:fixed;left:calc(18px + env(safe-area-inset-left, 0px));bottom:calc(18px + env(safe-area-inset-bottom, 0px));z-index:60;width:min(440px,calc(100vw - 36px));background:var(--branco);border:1px solid var(--linha);border-radius:16px;padding:18px 20px;box-shadow:0 18px 44px rgba(20,44,59,.22);display:flex;flex-direction:column;gap:12px;animation:cedSobe .5s cubic-bezier(.2,.8,.2,1) both}
+.cookies[hidden]{display:none}
+.cookies p{font-size:14.5px;line-height:1.55;color:var(--texto)}
+.cookies p a{color:var(--verde);font-weight:700}
+.cookies-acoes{display:flex;gap:10px;flex-wrap:wrap}
+.cookies-acoes .btn{min-height:42px;padding:9px 20px;font-size:14.5px}
+.cookies-acoes .btn-recusar{background:transparent;color:var(--verde);border-color:var(--verde)}
+.cookies-acoes .btn-aceitar{background:var(--verde);color:var(--branco)}
+.cookies-aberto .ced-lancador,.cookies-aberto .ced-teaser{visibility:hidden}
+@media (max-width:560px){.cookies{left:10px;right:10px;width:auto;bottom:calc(10px + env(safe-area-inset-bottom, 0px));padding:16px}.cookies-acoes .btn{flex:1}}
+.link-cookies{background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer}
 </style>
 </head>
 <body>
@@ -1416,7 +1435,7 @@ nav.menu a{padding-inline:8px}
         <details><summary>Quais custos existem além da entrada?</summary><div class="resp"><p>Os principais são o ITBI (imposto municipal sobre a transmissão do imóvel), o registro em cartório e as taxas do banco, como a de avaliação. Também vale considerar mudança, móveis e condomínio. Eu passo uma estimativa antes de você decidir.</p></div></details>
         <details><summary>Você também atende investidores e donos de terreno?</summary><div class="resp"><p>Sim. Além da casa própria, atuo com investimento imobiliário (análise de localização, liquidez e renda) e com terrenos, incluindo captação, permuta e incorporação.</p></div></details>
         <details><summary>Em quais regiões você atende?</summary><div class="resp"><p>Atendo São Paulo e a Grande São Paulo.</p></div></details>
-        <details><summary>Como meus dados são usados?</summary><div class="resp"><p>O site não tem cadastro e não grava o que você digita no formulário ou na conversa com o Cedrinho. Essas informações só montam a mensagem que você mesmo envia pelo WhatsApp. A partir daí, uso seus dados apenas para responder ao seu contato e dar andamento ao seu atendimento. Se quiser que eu apague a nossa conversa, é só pedir.</p></div></details>
+        <details><summary>Como meus dados são usados?</summary><div class="resp"><p>O site não tem cadastro e não grava o que você digita no formulário ou na conversa com o Cedrinho. Essas informações só montam a mensagem que você mesmo envia pelo WhatsApp. A partir daí, uso seus dados apenas para responder ao seu contato e dar andamento ao seu atendimento. Se quiser que eu apague a nossa conversa, é só pedir. Os detalhes estão na <a href="#privacidade" data-ir="privacidade">Política de privacidade</a>.</p></div></details>
       </div>
     </div>
   </section>
@@ -1552,6 +1571,83 @@ nav.menu a{padding-inline:8px}
 
 </main>
 
+<div class="view" id="v-privacidade" data-view="privacidade" hidden>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow">Privacidade</p>
+      <h1>Política de privacidade e cookies</h1>
+      <p class="lead">Como os seus dados são tratados quando você navega por este site e fala com o Guilherme.</p>
+    </div>
+  </section>
+  <section class="band bg-gelo">
+    <div class="wrap">
+      <div class="politica">
+        <p class="atualizada">Última atualização: 24 de novembro de 2026.</p>
+
+        <h2>1. Quem é o responsável</h2>
+        <p>Este site pertence a Guilherme Azevedo, consultor imobiliário (CRECI 189037), que atua em São Paulo e na Grande São Paulo. Ele é o responsável pelo tratamento dos dados pessoais descritos nesta política, nos termos da Lei Geral de Proteção de Dados (Lei nº 13.709/2018, LGPD).</p>
+        <p>Para qualquer assunto sobre privacidade, fale pelo WhatsApp <a href="https://wa.me/5511950274532" target="_blank" rel="noopener">(11) 95027-4532</a>.</p>
+
+        <h2>2. Quais dados são tratados</h2>
+        <ul>
+          <li><strong>O que você digita no site:</strong> nome e objetivo no formulário de contato, respostas na conversa com o Cedrinho e valores no simulador. Essas informações ficam só no seu navegador e servem para montar a mensagem que você mesmo decide enviar pelo WhatsApp. O site não tem cadastro e não grava esses dados.</li>
+          <li><strong>A conversa no WhatsApp:</strong> quando você envia a mensagem, o Guilherme recebe o seu nome, o seu número e o que você escreveu, além do que for conversado depois.</li>
+          <li><strong>Dados técnicos de navegação:</strong> como em qualquer site, a hospedagem registra informações como endereço IP, tipo de navegador, páginas acessadas e data e hora, para manter o site funcionando e seguro.</li>
+          <li><strong>Cookies e armazenamento no navegador:</strong> explicados no item 6.</li>
+        </ul>
+
+        <h2>3. Para que os dados são usados</h2>
+        <ul>
+          <li>Responder ao seu contato e fazer o atendimento que você pediu, como simulações, apresentação de imóveis e acompanhamento da compra.</li>
+          <li>Manter o site funcionando, seguro e protegido contra uso indevido.</li>
+          <li>Medir visitas e o resultado de anúncios, somente se você aceitar os cookies para esse fim.</li>
+        </ul>
+
+        <h2>4. Bases legais</h2>
+        <p>O atendimento ao seu contato se apoia na execução de procedimentos preliminares a pedido do titular (art. 7º, V, da LGPD). A segurança e o funcionamento do site, no legítimo interesse (art. 7º, IX). Cookies de medição e de anúncios, no seu consentimento (art. 7º, I), que pode ser retirado a qualquer momento.</p>
+
+        <h2>5. Com quem os dados podem ser compartilhados</h2>
+        <ul>
+          <li><strong>WhatsApp (Meta):</strong> a conversa acontece pelo aplicativo, que segue a política de privacidade dele.</li>
+          <li><strong>Hospedagem do site:</strong> a empresa que hospeda o site armazena os registros técnicos de navegação.</li>
+          <li><strong>Construtoras, incorporadoras e bancos:</strong> somente quando você decidir seguir com uma simulação, proposta ou compra, e apenas o necessário para isso.</li>
+          <li><strong>Autoridades:</strong> quando houver obrigação legal ou ordem judicial.</li>
+        </ul>
+        <p>Os seus dados não são vendidos.</p>
+
+        <h2>6. Cookies e armazenamento no navegador</h2>
+        <p>Cookies e tecnologias semelhantes são pequenos arquivos ou registros que o site guarda no seu navegador.</p>
+        <ul>
+          <li><strong>Necessários (sempre ativos):</strong> guardam a sua escolha sobre cookies e se o aviso do Cedrinho já foi fechado. Não identificam você.</li>
+          <li><strong>Medição e anúncios (só com o seu aceite):</strong> ferramentas como o Google Analytics e o Meta Pixel, usadas para contar visitas e medir o resultado de anúncios. Elas só são ativadas se você clicar em "Aceitar".</li>
+        </ul>
+        <p>Recusar não impede o uso do site. Você pode mudar a sua escolha quando quiser em <button type="button" class="link-cookies" data-cookies-abrir>preferências de cookies</button>, também disponível no rodapé.</p>
+
+        <h2>7. Por quanto tempo os dados ficam guardados</h2>
+        <p>As conversas e informações de atendimento ficam guardadas enquanto houver atendimento ou relacionamento comercial, ou pelo prazo exigido por lei. Depois disso, são apagadas. Você pode pedir a exclusão antes, salvo quando a guarda for obrigatória por lei.</p>
+
+        <h2>8. Seus direitos</h2>
+        <p>Pela LGPD (art. 18), você pode pedir, a qualquer momento:</p>
+        <ul>
+          <li>confirmação de que os seus dados são tratados e acesso a eles;</li>
+          <li>correção de dados incompletos, inexatos ou desatualizados;</li>
+          <li>anonimização, bloqueio ou eliminação de dados desnecessários;</li>
+          <li>portabilidade dos dados;</li>
+          <li>informação sobre com quem os dados foram compartilhados;</li>
+          <li>retirada do consentimento.</li>
+        </ul>
+        <p>Basta pedir pelo WhatsApp informado no item 1. Você também pode procurar a Autoridade Nacional de Proteção de Dados (ANPD).</p>
+
+        <h2>9. Segurança</h2>
+        <p>O site funciona com conexão segura (HTTPS) e não guarda o que você digita. As conversas ficam protegidas pelos recursos de segurança do próprio WhatsApp.</p>
+
+        <h2>10. Mudanças nesta política</h2>
+        <p>Esta política pode ser atualizada, por exemplo, quando novas ferramentas forem adicionadas ao site. A data da última atualização fica sempre no início da página.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
 <footer class="site on-dark">
   <div class="wrap">
     <div style="display:flex;flex-direction:column;gap:18px">
@@ -1581,10 +1677,20 @@ nav.menu a{padding-inline:8px}
   <div class="legal">
     <div class="wrap">
       <span>Guilherme Azevedo · Consultor imobiliário · CRECI 189037 (<a href="https://www.crecisp.gov.br/" target="_blank" rel="noopener">consultar no CRECI-SP</a>)</span>
+      <span><a href="#privacidade" data-ir="privacidade">Política de privacidade</a> · <button type="button" class="link-cookies" data-cookies-abrir>Preferências de cookies</button></span>
       <span>© 2026 · Site feito por <a class="credito-dev" href="https://sites.nickgomes.com" target="_blank" rel="noopener">Nick Gomes</a></span>
     </div>
   </div>
 </footer>
+
+<!-- Aviso de cookies (LGPD) -->
+<div class="cookies" id="cookies" role="region" aria-label="Aviso de cookies" hidden>
+  <p>Usamos cookies e tecnologias semelhantes para o site funcionar e, com a sua permissão, para medir visitas e o resultado de anúncios. Saiba mais na <a href="#privacidade" data-ir="privacidade">Política de privacidade</a>.</p>
+  <div class="cookies-acoes">
+    <button type="button" class="btn btn-recusar" data-cookies="recusado">Recusar</button>
+    <button type="button" class="btn btn-aceitar" data-cookies="aceito">Aceitar</button>
+  </div>
+</div>
 
 <!-- Fale com o Cedrinho: assistente com conversa guiada -->
 <div class="ced-teaser" id="ced-teaser" hidden>
@@ -1806,8 +1912,31 @@ nav.menu a{padding-inline:8px}
     });
   })();
 
+  /* Cookies (LGPD): a escolha fica salva no navegador.
+     Ferramentas de medição/anúncio (Google Analytics, Meta Pixel) só devem ser carregadas dentro de
+     window.aoConsentir(function(){ ...código da ferramenta... }), que só roda depois do "Aceitar". */
+  (function(){
+    var CHAVE = 'ga_cookies', aviso = document.getElementById('cookies'), esperando = [];
+    function ler(){ try { return localStorage.getItem(CHAVE); } catch(e){ return null; } }
+    window.consentimentoCookies = function(){ return ler() === 'aceito'; };
+    window.aoConsentir = function(fn){ if (window.consentimentoCookies()) { try { fn(); } catch(e){} } else esperando.push(fn); };
+    function abrir(){ aviso.hidden = false; document.documentElement.classList.add('cookies-aberto'); }
+    function fechar(){ aviso.hidden = true; document.documentElement.classList.remove('cookies-aberto'); }
+    document.addEventListener('click', function(ev){
+      var b = ev.target.closest('[data-cookies]');
+      if (b){
+        try { localStorage.setItem(CHAVE, b.dataset.cookies); } catch(e){}
+        fechar();
+        if (b.dataset.cookies === 'aceito'){ var f; while ((f = esperando.shift())) { try { f(); } catch(e){} } }
+        return;
+      }
+      if (ev.target.closest('[data-cookies-abrir]')) abrir();
+    });
+    if (!ler()) abrir();
+  })();
+
   /* Navegação entre páginas */
-  var VIEWS = ['inicio','sobre','empreendimentos','planta','incorporacao','simulador','depoimentos','duvidas','contato'];
+  var VIEWS = ['inicio','sobre','empreendimentos','planta','incorporacao','simulador','depoimentos','duvidas','contato','privacidade'];
   var menu = document.getElementById('menu'), menuBtn = document.getElementById('menu-btn');
   function mostrar(v, rolar){
     var lp = (v === 'lp');
@@ -1916,7 +2045,7 @@ nav.menu a{padding-inline:8px}
       var lead = {nome:$('ct2-nome').value.trim(), objetivo:marcado('ct2obj'), origem:origem, pagina: document.documentElement.classList.contains('modo-lp') ? 'lp' : 'contato'};
       /* Conversão para os anúncios (Meta e Google), quando os códigos forem instalados.
          Conta quem abriu o WhatsApp pelo formulário, não quem de fato enviou a mensagem. */
-      try { if (window.fbq) fbq('track', 'Lead'); if (window.gtag) gtag('event', 'generate_lead'); (window.dataLayer = window.dataLayer || []).push({event:'lead', objetivo:lead.objetivo}); } catch(err){}
+      if (window.consentimentoCookies && window.consentimentoCookies()) try { if (window.fbq) fbq('track', 'Lead'); if (window.gtag) gtag('event', 'generate_lead'); (window.dataLayer = window.dataLayer || []).push({event:'lead', objetivo:lead.objetivo}); } catch(err){}
       $('ct2-ok-titulo').textContent = 'Falta só enviar, ' + lead.nome.split(' ')[0] + '!';
       var pedido = PEDIDO[lead.objetivo] || ('Quero minha análise gratuita. Procuro: ' + lead.objetivo + '.');
       var link = wa('Olá, Guilherme! Meu nome é ' + lead.nome + '. ' + pedido);
